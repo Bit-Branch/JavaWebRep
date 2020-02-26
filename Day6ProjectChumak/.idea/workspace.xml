@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="df69c968-b046-41ad-b62f-80151eb075c3" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YCMrgDGCp9EM8JTEkS1ypBW0kz" />
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EPAMjavaZeroTask" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.javatr.task1.exception" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.ArraySorterTest">
+    <configuration name="ArraySorterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day6ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task2.util.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArraySorterTest.bubbleSortTest_With_Max_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day6ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task2.util.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="METHOD_NAME" value="bubbleSortTest_With_Max_Comparator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArraySorterTest.bubbleSortTest_With_Min_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day6ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task2.util.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="METHOD_NAME" value="bubbleSortTest_With_Min_Comparator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArraySorterTest.bubbleSortTest_With_Null_Argument" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day6ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task2.util.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="METHOD_NAME" value="bubbleSortTest_With_Null_Argument" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArraySorterTest.bubbleSortTest_With_Sum_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day6ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task2.util.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="METHOD_NAME" value="bubbleSortTest_With_Sum_Comparator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Max_Comparator" />
+      <item itemvalue="JUnit.ArraySorterTest" />
+      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Min_Comparator" />
+      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Sum_Comparator" />
+      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Null_Argument" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ArraySorterTest" />
+        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Null_Argument" />
+        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Sum_Comparator" />
+        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Min_Comparator" />
+        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Max_Comparator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="df69c968-b046-41ad-b62f-80151eb075c3" name="Default Changelist" comment="" />
+      <created>1582442323017</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582442323017</updated>
+      <workItem from="1582442333538" duration="17264000" />
+      <workItem from="1582636085807" duration="24737000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
