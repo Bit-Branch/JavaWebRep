@@ -1,5 +1,7 @@
 package by.javatr.task1.entity;
 
+import by.javatr.task1.exception.NullArgumentException;
+
 public class Ball {
     private Color color;
     private double weight;
@@ -7,25 +9,18 @@ public class Ball {
     public Ball() {
     }
 
-    public Ball(Color color, double weight) throws IllegalArgumentException{
-        if (weight <= 0){
-            throw new IllegalArgumentException("Argument(weight) has " +
-                    "a value less than or equal to zero");
-        }
-        if (color == null){
-            throw new IllegalArgumentException("Argument(color) is null");
-        }
-        this.color = color;
-        this.weight = weight;
+    public Ball(Color color, double weight) throws NullArgumentException{
+        setWeight(weight);
+        setColor(color);
     }
 
     public Color getColor() {
         return color;
     }
 
-    public void setColor(Color color) throws IllegalArgumentException{
+    public void setColor(Color color) throws NullArgumentException{
         if (color == null){
-            throw new IllegalArgumentException("Argument(color) is null");
+            throw new NullArgumentException("Argument(color) is null");
         }
         this.color = color;
     }
@@ -34,9 +29,9 @@ public class Ball {
         return weight;
     }
 
-    public void setWeight(double weight) throws IllegalArgumentException{
+    public void setWeight(double weight) throws NullArgumentException{
         if (weight <= 0){
-            throw new IllegalArgumentException("Argument(weight) has " +
+            throw new NullArgumentException("Argument(weight) has " +
                     "a value less than or equal to zero");
         }
         this.weight = weight;

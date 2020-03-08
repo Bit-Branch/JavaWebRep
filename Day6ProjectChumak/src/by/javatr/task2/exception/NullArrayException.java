@@ -1,14 +1,20 @@
 package by.javatr.task2.exception;
 
 public class NullArrayException extends Exception{
-    private String msg;
 
-    public NullArrayException(String msg){
-        this.msg = msg;
+    public NullArrayException(){
+        super();
     }
 
-    @Override
-    public String toString() {
-        return msg;
+    public NullArrayException(String message){
+        super(message);
+    }
+
+    public NullArrayException(Exception e){
+        super(e);
+    }
+
+    public NullArrayException(String message, Exception e){
+        super(message,e);
     }
 }

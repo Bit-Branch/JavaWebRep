@@ -1,8 +1,10 @@
 package by.javatr.task1.entity;
 
+import by.javatr.task1.exception.NonexistentIndexException;
+import by.javatr.task1.exception.NullArgumentException;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Basket {
     private List<Ball> balls;
@@ -11,43 +13,42 @@ public class Basket {
         this.balls = new ArrayList<>();
     }
 
-    public Basket(ArrayList<Ball> balls) throws IllegalArgumentException{
-        if (balls == null) {
-            throw new IllegalArgumentException("Argument(balls) is null");
-        }
-        this.balls = new ArrayList<>(balls);
+    public Basket(ArrayList<Ball> balls) throws NullArgumentException{
+        setBalls(balls);
     }
 
     public List<Ball> getBalls() {
-        return balls;
+        return new ArrayList<>(balls);
     }
 
-    public void setBalls(List<Ball> balls) throws IllegalArgumentException{
+    public void setBalls(List<Ball> balls) throws NullArgumentException{
         if (balls == null) {
-            throw new IllegalArgumentException("Argument(balls) is null");
+            throw new NullArgumentException("Argument(balls) is null");
         }
         this.balls = balls;
     }
 
-    public void add(Ball ball) throws IllegalArgumentException{
-        if (ball == null) {
-            throw new IllegalArgumentException("Argument(ball) is null");
-        }
+    public void add(Ball ball) throws NullArgumentException{
+        checkForNull(ball);
         balls.add(ball);
     }
 
-    public void remove(int index) throws IllegalArgumentException{
+    public void remove(int index) throws NonexistentIndexException{
         if (index < 0 || (index > balls.size()-1)){
-            throw new IllegalArgumentException("Argument(index) goes beyond");
+            throw new NonexistentIndexException("Argument(index) goes beyond");
         }
         balls.remove(index);
     }
 
-    public void remove(Ball ball) throws IllegalArgumentException{
-        if (ball == null){
-            throw new IllegalArgumentException("Argument(ball) is null");
-        }
+    public void remove(Ball ball) throws NullArgumentException{
+        checkForNull(ball);
         balls.remove(ball);
+    }
+
+    private void checkForNull(Ball ball) throws NullArgumentException {
+        if (ball == null){
+            throw new NullArgumentException("Argument(ball) is null");
+        }
     }
 
     @Override
@@ -59,7 +60,11 @@ public class Basket {
             return false;
         }
         Basket basket = (Basket) o;
-        return Objects.equals(balls, basket.balls);
+        if (balls == null) {
+            return basket.getBalls() == null;
+        } else {
+            return balls.equals(basket.getBalls());
+        }
     }
 
     @Override

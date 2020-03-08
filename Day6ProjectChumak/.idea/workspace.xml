@@ -12,8 +12,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -25,7 +25,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EPAMjavaZeroTask" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EPAMstudyField" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -44,7 +44,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ArraySorterTest">
+  <component name="RunManager" selected="JUnit.JaggedArraySorterTest.bubbleSortTest_With_Sum_Comparator">
     <configuration name="ArraySorterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Day6ProjectChumak" />
       <extension name="coverage">
@@ -60,7 +60,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArraySorterTest.bubbleSortTest_With_Max_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JaggedArraySorterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Day6ProjectChumak" />
       <extension name="coverage">
         <pattern>
@@ -69,14 +69,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
-      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.JaggedArraySorterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JaggedArraySorterTest.bubbleSortTest_With_Max_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Day6ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task2.util.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.JaggedArraySorterTest" />
       <option name="METHOD_NAME" value="bubbleSortTest_With_Max_Comparator" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArraySorterTest.bubbleSortTest_With_Min_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JaggedArraySorterTest.bubbleSortTest_With_Min_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Day6ProjectChumak" />
       <extension name="coverage">
         <pattern>
@@ -85,14 +100,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
-      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.JaggedArraySorterTest" />
       <option name="METHOD_NAME" value="bubbleSortTest_With_Min_Comparator" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArraySorterTest.bubbleSortTest_With_Null_Argument" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JaggedArraySorterTest.bubbleSortTest_With_Sum_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Day6ProjectChumak" />
       <extension name="coverage">
         <pattern>
@@ -101,23 +116,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
-      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
-      <option name="METHOD_NAME" value="bubbleSortTest_With_Null_Argument" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ArraySorterTest.bubbleSortTest_With_Sum_Comparator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Day6ProjectChumak" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.javatr.task2.util.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="by.javatr.task2.util.test" />
-      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.ArraySorterTest" />
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task2.util.test.JaggedArraySorterTest" />
       <option name="METHOD_NAME" value="bubbleSortTest_With_Sum_Comparator" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -125,19 +124,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Max_Comparator" />
       <item itemvalue="JUnit.ArraySorterTest" />
-      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Min_Comparator" />
-      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Sum_Comparator" />
-      <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Null_Argument" />
+      <item itemvalue="JUnit.JaggedArraySorterTest" />
+      <item itemvalue="JUnit.JaggedArraySorterTest.bubbleSortTest_With_Max_Comparator" />
+      <item itemvalue="JUnit.JaggedArraySorterTest.bubbleSortTest_With_Min_Comparator" />
+      <item itemvalue="JUnit.JaggedArraySorterTest.bubbleSortTest_With_Sum_Comparator" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JaggedArraySorterTest.bubbleSortTest_With_Sum_Comparator" />
+        <item itemvalue="JUnit.JaggedArraySorterTest.bubbleSortTest_With_Min_Comparator" />
+        <item itemvalue="JUnit.JaggedArraySorterTest.bubbleSortTest_With_Max_Comparator" />
+        <item itemvalue="JUnit.JaggedArraySorterTest" />
         <item itemvalue="JUnit.ArraySorterTest" />
-        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Null_Argument" />
-        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Sum_Comparator" />
-        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Min_Comparator" />
-        <item itemvalue="JUnit.ArraySorterTest.bubbleSortTest_With_Max_Comparator" />
       </list>
     </recent_temporary>
   </component>
@@ -153,6 +152,12 @@
       <updated>1582442323017</updated>
       <workItem from="1582442333538" duration="17264000" />
       <workItem from="1582636085807" duration="24737000" />
+      <workItem from="1583040648534" duration="94000" />
+      <workItem from="1583354922471" duration="485000" />
+      <workItem from="1583356609547" duration="23000" />
+      <workItem from="1583563181031" duration="414000" />
+      <workItem from="1583564410128" duration="10962000" />
+      <workItem from="1583642992827" duration="1109000" />
     </task>
     <servers />
   </component>

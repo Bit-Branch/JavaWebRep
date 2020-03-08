@@ -19,6 +19,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../risLabs" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.javatr.task1.exception" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -32,7 +38,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task1.runner.Main" />
+      <module name="Day2ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task1.runner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="by.javatr.Main" />
       <module name="Day2ProjectChumak" />
@@ -56,12 +75,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main (1)" />
-    </list>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.javatr.task1.entity.Test" />
+      <module name="Day2ProjectChumak" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.task1.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
@@ -77,6 +106,14 @@
       <option name="presentableId" value="Default" />
       <updated>1582120063267</updated>
       <workItem from="1582120075029" duration="14351000" />
+      <workItem from="1582144369941" duration="616000" />
+      <workItem from="1582207789703" duration="29000" />
+      <workItem from="1582591794765" duration="77000" />
+      <workItem from="1582624657944" duration="59000" />
+      <workItem from="1582636072553" duration="9000" />
+      <workItem from="1583354845545" duration="72000" />
+      <workItem from="1583563606540" duration="11078000" />
+      <workItem from="1583641658922" duration="49000" />
     </task>
     <servers />
   </component>

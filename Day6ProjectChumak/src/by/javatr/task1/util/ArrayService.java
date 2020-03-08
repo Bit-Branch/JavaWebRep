@@ -103,13 +103,21 @@ public class ArrayService {
         return getArray(array,ArrayService::hasDifferentDigits);
     }
 
-    public static int findMaxElement(Array integerArray) throws NullArgumentException, ZeroSizeException {
+    private static void checkArrForNull(Array integerArray) throws NullArgumentException {
         if (integerArray == null){
             throw new NullArgumentException("integerArray argument is null");
         }
-        if (integerArray.getSize() == 0) {
+    }
+
+    private static void checkArrForZeroSize(Array array) throws ZeroSizeException {
+        if (array.getSize() == 0) {
             throw new ZeroSizeException("integerArray has zero size");
         }
+    }
+
+    public static int findMaxElement(Array integerArray) throws NullArgumentException, ZeroSizeException {
+        checkArrForNull(integerArray);
+        checkArrForZeroSize(integerArray);
             int max = integerArray.get(0);
             for (int i = 0; i < integerArray.getSize(); i++) {
                 if (integerArray.get(i) > max) {
@@ -120,12 +128,8 @@ public class ArrayService {
     }
 
     public static int findMinElement(Array integerArray) throws NullArgumentException, ZeroSizeException {
-        if (integerArray == null){
-            throw new NullArgumentException("integerArray argument is null");
-        }
-        if (integerArray.getSize() == 0) {
-            throw new ZeroSizeException("integerArray has zero size");
-        }
+        checkArrForNull(integerArray);
+        checkArrForZeroSize(integerArray);
         int min = integerArray.get(0);
         for(int i = 0; i < integerArray.getSize(); ++i)
         {

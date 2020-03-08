@@ -1,35 +1,39 @@
 package by.javatr.task2.util;
 
 import by.javatr.exception.NullArgumentException;
-import by.javatr.task2.entity.SortingOrder;
-import by.javatr.task2.entity.comparator.Comparator;
-import by.javatr.task2.entity.comparator.MaxComparator;
 import by.javatr.task2.exception.NullArrayException;
 
-public class ArraySorter {
+public class JaggedArraySorter {
 
-    public static void bubbleSort(int[][] array, Comparator comparator,
-                                  SortingOrder sortingOrder) throws NullArgumentException, NullArrayException {
-        if (array == null){
+    public static void bubbleSort(int[][] array, java.util.Comparator<int[]> comparator)
+            throws NullArgumentException, NullArrayException {
+        sort(array,comparator,false);
+    }
+
+    public static void bubbleSort(int[][] array, java.util.Comparator<int[]> comparator,
+                                  boolean desc) throws NullArgumentException, NullArrayException {
+        sort(array,comparator,desc);
+    }
+
+    private static void sort(int[][] array, java.util.Comparator<int[]> comparator,
+                                  boolean desc) throws NullArgumentException, NullArrayException {
+        if (array == null) {
             throw new NullArgumentException("array argument is null");
         }
-        if (comparator == null){
+        if (comparator == null) {
             throw new NullArgumentException("comparator argument is null");
         }
-        if (sortingOrder == null){
-            throw new NullArgumentException("sortingOrder argument is null");
-        }
-        if (hasNullArray(array)){
+        if (hasNullArray(array)) {
             throw new NullArrayException("jagged array has null array");
         }
         for (int i = 0; i < array.length; i++) {
             for (int j = array.length - 1; j > i; j--) {
-                if (comparator.compare(array[j], array[j - 1]) > 0) {
-                    swapRows(array,j, j - 1);
+                if (comparator.compare(array[j], array[j - 1]) < 0) {
+                    swapRows(array, j, j - 1);
                 }
             }
         }
-        if (sortingOrder == SortingOrder.DESC){
+        if (desc) {
             reverseArray(array);
         }
     }

@@ -12,7 +12,6 @@ public class Array {
     private int size;
     private Integer[] array;
 
-
     public Array() {
         this.array = EMPTY_ARRAY;
     }
@@ -54,21 +53,30 @@ public class Array {
         array = Arrays.copyOf(array, newCapacity);
     }
 
-    public void add(Integer element) throws NullArgumentException {
+    private void checkElementForNull(Integer element) throws NullArgumentException {
         if (element == null){
             throw new NullArgumentException("element argument is null");
         }
+    }
+
+    private void checkForInvalidIndex(int index) throws InvalidIndexException {
+        if (index < 0){
+            throw new InvalidIndexException("Index argument is negative");
+        }
+        if(index > size-1){
+            throw new InvalidIndexException("Index larger than size of array");
+        }
+    }
+
+    public void add(Integer element) throws NullArgumentException {
+        checkElementForNull(element);
         increaseSize(size + 1);
         array[size++] = element;
     }
 
     public void add(int index, Integer element) throws InvalidIndexException, NullArgumentException {
-        if (index < 0){
-            throw new InvalidIndexException("Index argument is negative");
-        }
-        if (element == null){
-            throw new NullArgumentException("element argument is null");
-        }
+        checkForInvalidIndex(index);
+        checkElementForNull(element);
         increaseSize(size + 1);
         System.arraycopy(array, index, array, index + 1,
                 size - index);
@@ -77,12 +85,7 @@ public class Array {
     }
 
     public Integer remove(int index) throws InvalidIndexException {
-        if(index > size-1){
-            throw new InvalidIndexException("Index larger than size of array");
-        }
-        if (index < 0){
-            throw new InvalidIndexException("Index argument is negative");
-        }
+        checkForInvalidIndex(index);
         int oldValue = array[index];
         int numMoved = size - index - 1;
         if (numMoved > 0)
@@ -139,9 +142,7 @@ public class Array {
     }
 
     public int findIndexOf(Integer element) throws NullArgumentException {
-        if (element == null){
-            throw new NullArgumentException("element argument is null");
-        }
+        checkElementForNull(element);
         doInsertionSort();
         int mid;
         int left = 0;
@@ -191,7 +192,7 @@ public class Array {
         if (o == null || getClass() != o.getClass()) return false;
         Array array1 = (Array) o;
         return size == array1.size &&
-                Arrays.equals(array, array1.array);
+                array.equals(array1.array);
     }
 
     @Override

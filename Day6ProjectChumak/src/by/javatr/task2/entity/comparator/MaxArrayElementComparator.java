@@ -1,7 +1,8 @@
 package by.javatr.task2.entity.comparator;
-import by.javatr.exception.NullArgumentException;
 
-public class MaxComparator extends Comparator {
+import java.util.Comparator;
+
+public class MaxArrayElementComparator implements Comparator<int[]> {
 
     private int findMaxElement(int[] array){
         int max = array[0];
@@ -14,7 +15,7 @@ public class MaxComparator extends Comparator {
     }
 
     @Override
-    public int compare(int[] firstArray, int[] secondArray) throws NullArgumentException {
-        return super.getComparingResult(firstArray, secondArray, this::findMaxElement);
+    public int compare(int[] o1, int[] o2) {
+        return findMaxElement(o1) - findMaxElement(o2);
     }
 }

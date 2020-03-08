@@ -54,21 +54,30 @@ public class GenericArray<T> {
         array = Arrays.copyOf(array, newCapacity);
     }
 
-    public void add(T element) throws NullArgumentException {
+    private void checkElementForNull(T element) throws NullArgumentException {
         if (element == null){
             throw new NullArgumentException("element argument is null");
         }
+    }
+
+    private void checkForInvalidIndex(int index) throws InvalidIndexException {
+        if (index < 0){
+            throw new InvalidIndexException("Index argument is negative");
+        }
+        if(index > size-1){
+            throw new InvalidIndexException("Index larger than size of array");
+        }
+    }
+
+    public void add(T element) throws NullArgumentException {
+        checkElementForNull(element);
         increaseSize(size + 1);
         array[size++] = element;
     }
 
     public void add(int index, T element) throws InvalidIndexException, NullArgumentException {
-        if (index < 0){
-            throw new InvalidIndexException("Index argument is negative");
-        }
-        if (element == null){
-            throw new NullArgumentException("element argument is null");
-        }
+        checkForInvalidIndex(index);
+        checkElementForNull(element);
         increaseSize(size + 1);
         System.arraycopy(array, index, array, index + 1,
                 size - index);
@@ -77,12 +86,7 @@ public class GenericArray<T> {
     }
 
     public T remove(int index) throws InvalidIndexException {
-        if(index > size-1){
-            throw new InvalidIndexException("Index larger than size of array");
-        }
-        if (index < 0){
-            throw new InvalidIndexException("Index argument is negative");
-        }
+        checkForInvalidIndex(index);
         T oldValue = (T)array[index];
         int numMoved = size - index - 1;
         if (numMoved > 0)
@@ -139,9 +143,7 @@ public class GenericArray<T> {
     }
 
     public int findIndexOf(T element) throws NullArgumentException {
-        if (element == null){
-            throw new NullArgumentException("element argument is null");
-        }
+        checkElementForNull(element);
         doInsertionSort();
         int mid;
         int left = 0;
@@ -191,7 +193,7 @@ public class GenericArray<T> {
         if (o == null || getClass() != o.getClass()) return false;
         GenericArray<T> array1 = (GenericArray<T>) o;
         return size == array1.size &&
-                Arrays.equals(array, array1.array);
+                array.equals(array1.array);
     }
 
     @Override

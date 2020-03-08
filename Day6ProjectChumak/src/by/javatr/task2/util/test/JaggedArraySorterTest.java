@@ -1,18 +1,14 @@
 package by.javatr.task2.util.test;
 
 import by.javatr.exception.NullArgumentException;
-import by.javatr.task2.entity.SortingOrder;
-import by.javatr.task2.entity.comparator.MaxComparator;
-import by.javatr.task2.entity.comparator.MinComparator;
-import by.javatr.task2.entity.comparator.SumComparator;
+import by.javatr.task2.entity.comparator.*;
 import by.javatr.task2.exception.NullArrayException;
-import by.javatr.task2.util.ArraySorter;
+import by.javatr.task2.util.JaggedArraySorter;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ArraySorterTest {
-
+public class JaggedArraySorterTest {
     private int[][] jaggedArray;
 
     @Before
@@ -22,27 +18,27 @@ public class ArraySorterTest {
 
     @Test(expected = NullArgumentException.class)
     public void bubbleSortTest_With_Null_Argument() throws NullArgumentException, NullArrayException {
-        ArraySorter.bubbleSort(null, new MaxComparator(), SortingOrder.DESC);
+        JaggedArraySorter.bubbleSort(null, new MaxArrayElementComparator());
     }
 
     @Test
     public void bubbleSortTest_With_Max_Comparator() throws NullArgumentException, NullArrayException {
         int[][] expected = new int[][] { {34,5,4,4}, {5,34,7,3,2,6}, {1,7,4,7,9} };
-        ArraySorter.bubbleSort(jaggedArray, new MaxComparator(), SortingOrder.DESC);
+        JaggedArraySorter.bubbleSort(jaggedArray, new MaxArrayElementComparator(), true);
         Assert.assertArrayEquals(expected,jaggedArray);
     }
 
     @Test
     public void bubbleSortTest_With_Min_Comparator() throws NullArgumentException, NullArrayException {
         int[][] expected = new int[][] {{1,7,4,7,9}, {5,34,7,3,2,6}, {34,5,4,4} };
-        ArraySorter.bubbleSort(jaggedArray, new MinComparator(), SortingOrder.ASC);
+        JaggedArraySorter.bubbleSort(jaggedArray, new MinArrayElementComparator(),false);
         Assert.assertArrayEquals(expected,jaggedArray);
     }
 
     @Test
     public void bubbleSortTest_With_Sum_Comparator() throws NullArgumentException, NullArrayException {
         int[][] expected = new int[][] { {1,7,4,7,9}, {34,5,4,4}, {5,34,7,3,2,6} };
-        ArraySorter.bubbleSort(jaggedArray, new SumComparator(), SortingOrder.ASC);
+        JaggedArraySorter.bubbleSort(jaggedArray, new ArraySumComparator());
         Assert.assertArrayEquals(expected,jaggedArray);
     }
 }

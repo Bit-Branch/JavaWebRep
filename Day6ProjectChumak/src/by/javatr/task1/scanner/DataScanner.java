@@ -8,6 +8,9 @@ public class DataScanner {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int enterInt() throws InputMismatchException {
+        while(!scanner.hasNextInt()){
+            scanner.next();
+        }
         return scanner.nextInt();
     }
 

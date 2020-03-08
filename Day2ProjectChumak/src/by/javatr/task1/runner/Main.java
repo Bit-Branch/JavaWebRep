@@ -1,5 +1,7 @@
 package by.javatr.task1.runner;
 
+import by.javatr.task1.exception.NonexistentIndexException;
+import by.javatr.task1.exception.NullArgumentException;
 import by.javatr.task1.scanner.DataScanner;
 import by.javatr.task1.entity.Ball;
 import by.javatr.task1.entity.Basket;
@@ -12,12 +14,12 @@ public class Main {
     public static void main(String[] args) {
         try {
             showMainMenu();
-        } catch (IllegalArgumentException | InputMismatchException e){
-            e.printStackTrace();
+        } catch (NullArgumentException | InputMismatchException | NonexistentIndexException e){
+            System.out.println(e.getMessage());
         }
     }
 
-    private static void showMainMenu() {
+    private static void showMainMenu() throws NullArgumentException, NonexistentIndexException {
         Basket basket = new Basket();
         while (true) {
             System.out.println("-------------------------");
@@ -59,7 +61,7 @@ public class Main {
         }
     }
 
-    private static Ball getInputs(){
+    private static Ball getInputs() throws NullArgumentException {
         System.out.println("Pick color of the ball");
         Color color = pickBallColor();
         System.out.println("Enter the weight of the ball");
