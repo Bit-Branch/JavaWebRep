@@ -1,0 +1,28 @@
+2020-52-02 08:52:07.767 [INFO] main: by.epam.entity.Point@x: 0.0,y: 0.0 by.epam.entity.Point@x: 1.0,y: 0.0 by.epam.entity.Point@x: 0.0,y: 1.0 makes a triangle: true
+2020-52-02 08:52:07.813 [INFO] main: Created triangle with coordinates: by.epam.entity.Point@x: 0.0,y: 0.0 by.epam.entity.Point@x: 1.0,y: 0.0 by.epam.entity.Point@x: 0.0,y: 1.0
+2020-52-02 08:52:07.813 [INFO] main: Calculated area of theby.epam.entity.Triangle@id=1, a=by.epam.entity.Point@x: 0.0,y: 0.0, b=by.epam.entity.Point@x: 1.0,y: 0.0, c=by.epam.entity.Point@x: 0.0,y: 1.0: 0.5
+2020-52-02 08:52:07.829 [INFO] main: by.epam.entity.Point@x: 0.0,y: 0.0 by.epam.entity.Point@x: 1.0,y: 0.0 by.epam.entity.Point@x: 0.0,y: 1.0 makes a triangle: true
+2020-52-02 08:52:07.829 [INFO] main: Created triangle with coordinates: by.epam.entity.Point@x: 0.0,y: 0.0 by.epam.entity.Point@x: 1.0,y: 0.0 by.epam.entity.Point@x: 0.0,y: 1.0
+2020-52-02 08:52:07.829 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: 0.0,y: 0.0 and by.epam.entity.Point@x: 1.0,y: 0.0
+2020-52-02 08:52:07.829 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: 1.0,y: 0.0 and by.epam.entity.Point@x: 0.0,y: 1.0
+2020-52-02 08:52:07.829 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: 0.0,y: 1.0 and by.epam.entity.Point@x: 0.0,y: 0.0
+2020-52-02 08:52:07.829 [INFO] main: Calculated sides lengths
+2020-52-02 08:52:07.829 [INFO] main: Calculated perimeter of theby.epam.entity.Triangle@id=2, a=by.epam.entity.Point@x: 0.0,y: 0.0, b=by.epam.entity.Point@x: 1.0,y: 0.0, c=by.epam.entity.Point@x: 0.0,y: 1.0: 3.414213562373095
+2020-52-02 08:52:23.648 [INFO] main: by.epam.entity.Point@x: -3.0,y: -2.0 by.epam.entity.Point@x: 0.0,y: -1.0 by.epam.entity.Point@x: -2.0,y: 5.0 makes a triangle: true
+2020-52-02 08:52:23.679 [INFO] main: Created triangle with coordinates: by.epam.entity.Point@x: -3.0,y: -2.0 by.epam.entity.Point@x: 0.0,y: -1.0 by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.679 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: -3.0,y: -2.0 and by.epam.entity.Point@x: 0.0,y: -1.0
+2020-52-02 08:52:23.679 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: 0.0,y: -1.0 and by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.679 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: -3.0,y: -2.0 and by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.679 [INFO] main: Calculated lengths of theby.epam.entity.Triangle@id=1, a=by.epam.entity.Point@x: -3.0,y: -2.0, b=by.epam.entity.Point@x: 0.0,y: -1.0, c=by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.711 [INFO] main: by.epam.entity.Point@x: -3.0,y: -2.0 by.epam.entity.Point@x: 0.0,y: -1.0 by.epam.entity.Point@x: -2.0,y: 5.0 makes a triangle: true
+2020-52-02 08:52:23.711 [INFO] main: Created triangle with coordinates: by.epam.entity.Point@x: -3.0,y: -2.0 by.epam.entity.Point@x: 0.0,y: -1.0 by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.711 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: -3.0,y: -2.0 and by.epam.entity.Point@x: 0.0,y: -1.0
+2020-52-02 08:52:23.711 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: 0.0,y: -1.0 and by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.711 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: -3.0,y: -2.0 and by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.711 [INFO] main: Calculated lengths of theby.epam.entity.Triangle@id=2, a=by.epam.entity.Point@x: -3.0,y: -2.0, b=by.epam.entity.Point@x: 0.0,y: -1.0, c=by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.711 [INFO] main: by.epam.entity.Point@x: -3.0,y: -2.0 by.epam.entity.Point@x: 0.0,y: -1.0 by.epam.entity.Point@x: -2.0,y: 5.0 makes a triangle: true
+2020-52-02 08:52:23.711 [INFO] main: Created triangle with coordinates: by.epam.entity.Point@x: -3.0,y: -2.0 by.epam.entity.Point@x: 0.0,y: -1.0 by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.726 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: -3.0,y: -2.0 and by.epam.entity.Point@x: 0.0,y: -1.0
+2020-52-02 08:52:23.726 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: 0.0,y: -1.0 and by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.726 [INFO] main: Calculated distance between points: by.epam.entity.Point@x: -3.0,y: -2.0 and by.epam.entity.Point@x: -2.0,y: 5.0
+2020-52-02 08:52:23.726 [INFO] main: by.epam.entity.Triangle@id=3, a=by.epam.entity.Point@x: -3.0,y: -2.0, b=by.epam.entity.Point@x: 0.0,y: -1.0, c=by.epam.entity.Point@x: -2.0,y: 5.0 is rectangular: true

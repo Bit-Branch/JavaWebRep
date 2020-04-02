@@ -35,16 +35,16 @@ public class Point {
 
         Point point = (Point) o;
 
-        if (x != point.x) return false;
-        return y == point.y;
+        return this.getX()== point.getX() &&
+                this.getY() == point.getY();
     }
 
     @Override
     public int hashCode() {
-        int result;
+        int result = 1;
         long temp;
         temp = Double.doubleToLongBits(x);
-        result = (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(y);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;

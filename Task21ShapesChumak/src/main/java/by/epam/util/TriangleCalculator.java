@@ -11,16 +11,18 @@ import java.util.List;
 import static java.lang.Math.abs;
 
 public class TriangleCalculator {
-    private static final Logger LOGGER = LogManager.getLogger(TriangleCalculator.class);
+    private final Logger LOGGER = LogManager.getLogger(TriangleCalculator.class);
 
-    public static double calculateArea(Triangle triangle) {
+    public double calculateArea(Triangle triangle) {
         Point a = triangle.getA();
         Point b = triangle.getB();
         Point c = triangle.getC();
-        return (a.getX()*(b.getY() -c.getY()) + b.getX()*(c.getY() -a.getY()) + c.getX()*(a.getY() - b.getY()))/2;
+        double area = (a.getX()*(b.getY() -c.getY()) + b.getX()*(c.getY() -a.getY()) + c.getX()*(a.getY() - b.getY()))/2;
+        LOGGER.info("Calculated area of the" + triangle + ": " + area);
+        return area;
     }
 
-    public static double calculatePerimeter(Triangle triangle) {
+    public double calculatePerimeter(Triangle triangle) {
 
         List<Double> lengths = calculateSideLengths(triangle);
         double perimeter = 0;
@@ -28,21 +30,23 @@ public class TriangleCalculator {
              ) {
             perimeter+= length;
         }
-        LOGGER.info("Perimeter of the" + triangle + " is " + perimeter);
+        LOGGER.info("Calculated perimeter of the" + triangle + ": " + perimeter);
         return perimeter;
     }
 
-    private static List<Double> calculateSideLengths(Triangle triangle){
+    private List<Double> calculateSideLengths(Triangle triangle){
         List<Double> sides =new ArrayList<>();
         sides.add(calculateDistance(triangle.getA(),triangle.getB()));
         sides.add(calculateDistance(triangle.getB(),triangle.getC()));
         sides.add(calculateDistance(triangle.getC(),triangle.getA()));
+        LOGGER.info("Calculated sides lengths");
         return sides;
     }
 
-    public static double calculateDistance(Point a, Point b) {
+    public double calculateDistance(Point a, Point b) {
         double dx = abs(a.getX() - b.getX());
         double dy = abs(a.getY() - b.getY());
+        LOGGER.info("Calculated distance between points: " + a + " and " + b);
         return Math.sqrt(dx*dx + dy*dy);
     }
 }

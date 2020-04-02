@@ -1,8 +1,9 @@
 package by.epam.entity;
 
+import by.epam.exception.NullPointException;
 import by.epam.idgenerator.IdGenerator;
 
-public class Triangle {
+public class Triangle extends Shape{
 
     private int id;
 
@@ -10,23 +11,30 @@ public class Triangle {
     private Point b;
     private Point c;
 
-    public Triangle(Point a, Point b, Point c) {
+    public Triangle() {
+    }
+
+    public Triangle(Point a, Point b, Point c){
         this.id = IdGenerator.generateId();
+        setA(a);
+        setB(b);
+        setC(c);
+    }
+
+    public void setA(Point a){
         this.a = a;
+    }
+
+    public void setB(Point b){
         this.b = b;
+    }
+
+    public void setC(Point c){
         this.c = c;
     }
 
-    public void setA(Point a) {
-        this.a = a;
-    }
-
-    public void setB(Point b) {
-        this.b = b;
-    }
-
-    public void setC(Point c) {
-        this.c = c;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId(){
@@ -60,7 +68,8 @@ public class Triangle {
 
     @Override
     public int hashCode() {
-        int result = a != null ? a.hashCode() : 0;
+        int result = 1;
+        result = 31 * result + (a != null ? a.hashCode() : 0);
         result = 31 * result + (b != null ? b.hashCode() : 0);
         result = 31 * result + (c != null ? c.hashCode() : 0);
         return result;
