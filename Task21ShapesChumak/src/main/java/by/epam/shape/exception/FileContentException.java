@@ -1,4 +1,4 @@
-package by.epam.exception;
+package by.epam.shape.exception;
 
 public class FileContentException extends Exception {
     public FileContentException(){

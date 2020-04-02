@@ -1,4 +1,4 @@
-package by.epam.idgenerator;
+package by.epam.shape.idgenerator;
 
 public class IdGenerator {
 

@@ -1,4 +1,4 @@
-package by.epam.reader;
+package by.epam.shape.reader;
 
 import java.util.List;
 

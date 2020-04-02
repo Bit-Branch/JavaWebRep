@@ -1,4 +1,4 @@
-package by.epam.exception;
+package by.epam.shape.exception;
 
 public class NullPointException extends Exception {
     public NullPointException(){

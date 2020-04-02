@@ -1,8 +1,8 @@
-package by.epam.util;
+package by.epam.shape.util;
 
-import by.epam.entity.Point;
-import by.epam.entity.Triangle;
-import by.epam.factory.impl.TriangleFactory;
+import by.epam.shape.entity.Point;
+import by.epam.shape.entity.Triangle;
+import by.epam.shape.factory.impl.TriangleFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

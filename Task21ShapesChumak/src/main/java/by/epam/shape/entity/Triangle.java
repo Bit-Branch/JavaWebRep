@@ -1,7 +1,6 @@
-package by.epam.entity;
+package by.epam.shape.entity;
 
-import by.epam.exception.NullPointException;
-import by.epam.idgenerator.IdGenerator;
+import by.epam.shape.idgenerator.IdGenerator;
 
 public class Triangle extends Shape{
 
@@ -16,9 +15,16 @@ public class Triangle extends Shape{
 
     public Triangle(Point a, Point b, Point c){
         this.id = IdGenerator.generateId();
-        setA(a);
-        setB(b);
-        setC(c);
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    public Triangle(int id, Point a, Point b, Point c){
+        this.id = id;
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
     public void setA(Point a){
@@ -61,9 +67,9 @@ public class Triangle extends Shape{
 
         Triangle triangle = (Triangle) o;
 
-        if (a != null ? !a.equals(triangle.a) : triangle.a != null){ return false;}
-        if (b != null ? !b.equals(triangle.b) : triangle.b != null){ return false;}
-        return c != null ? c.equals(triangle.c) : triangle.c == null;
+        return a != null ? a.equals(triangle.a) : a == triangle.a &&
+        b != null ? b.equals(triangle.b) : b == triangle.b &&
+        c != null ? c.equals(triangle.c) : c == triangle.c;
     }
 
     @Override

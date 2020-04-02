@@ -1,9 +1,9 @@
-package by.epam.factory;
+package by.epam.shape.factory;
 
-import by.epam.entity.Point;
-import by.epam.entity.Shape;
-import by.epam.exception.IncorrectCoordinatesException;
-import by.epam.exception.NullPointException;
+import by.epam.shape.entity.Point;
+import by.epam.shape.entity.Shape;
+import by.epam.shape.exception.IncorrectCoordinatesException;
+import by.epam.shape.exception.NullPointException;
 
 public interface ShapeFactory {
     Shape create(Point a, Point b, Point c) throws IncorrectCoordinatesException, NullPointException;

@@ -1,6 +1,6 @@
-package by.epam.reader.impl;
+package by.epam.shape.reader.impl;
 
-import by.epam.reader.ShapeFileReader;
+import by.epam.shape.reader.ShapeFileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

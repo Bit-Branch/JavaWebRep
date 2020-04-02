@@ -1,11 +1,11 @@
-package by.epam.factory.impl;
+package by.epam.shape.factory.impl;
 
-import by.epam.entity.Point;
-import by.epam.entity.Triangle;
-import by.epam.exception.IncorrectCoordinatesException;
-import by.epam.exception.NullPointException;
-import by.epam.factory.ShapeFactory;
-import by.epam.validator.TriangleValidator;
+import by.epam.shape.entity.Point;
+import by.epam.shape.entity.Triangle;
+import by.epam.shape.exception.IncorrectCoordinatesException;
+import by.epam.shape.exception.NullPointException;
+import by.epam.shape.factory.ShapeFactory;
+import by.epam.shape.validator.TriangleValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

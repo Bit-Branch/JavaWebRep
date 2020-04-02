@@ -1,7 +1,7 @@
-package by.epam.util;
+package by.epam.shape.util;
 
-import by.epam.entity.Point;
-import by.epam.entity.Triangle;
+import by.epam.shape.entity.Point;
+import by.epam.shape.entity.Triangle;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

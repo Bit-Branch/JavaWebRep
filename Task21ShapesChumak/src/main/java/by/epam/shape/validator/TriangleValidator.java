@@ -1,8 +1,8 @@
-package by.epam.validator;
+package by.epam.shape.validator;
 
-import by.epam.entity.Point;
-import by.epam.entity.Triangle;
-import by.epam.util.TriangleCalculator;
+import by.epam.shape.entity.Point;
+import by.epam.shape.entity.Triangle;
+import by.epam.shape.util.TriangleCalculator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
