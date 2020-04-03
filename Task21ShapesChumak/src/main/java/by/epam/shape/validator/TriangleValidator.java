@@ -29,7 +29,6 @@ public class TriangleValidator {
     }
 
     public boolean isTriangle(Triangle triangle) {
-
         boolean isTriangle = isTriangle(triangle.getA(), triangle.getB(), triangle.getC());
         LOGGER.info(triangle + " is correct : " + isTriangle);
         return isTriangle;

@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FileContentValidator {
-    private final Pattern trianglePattern = Pattern.compile("(\\d+\\s|\\$){7}");
+public class TriangleFileValidator {
+    private final Pattern trianglePattern = Pattern.compile("(\\d+\\s|\\n){7}");
 
     public boolean isValidTriangleString(String triangleData){
         boolean condition = false;
         Matcher matcher = trianglePattern.matcher(triangleData);
-        if (!triangleData.isEmpty() || matcher.matches()){
+        if (!triangleData.isEmpty() && matcher.matches()){
             condition = true;
         }
         return condition;

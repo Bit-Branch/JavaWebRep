@@ -26,3 +26,12 @@
 2020-52-02 08:52:23.726 [INFO] main: Calculated distance between points: Point@x: 0.0,y: -1.0 and Point@x: -2.0,y: 5.0
 2020-52-02 08:52:23.726 [INFO] main: Calculated distance between points: Point@x: -3.0,y: -2.0 and Point@x: -2.0,y: 5.0
 2020-52-02 08:52:23.726 [INFO] main: Triangle@id=3, a=Point@x: -3.0,y: -2.0, b=Point@x: 0.0,y: -1.0, c=Point@x: -2.0,y: 5.0 is rectangular: true
+2020-36-03 08:36:19.900 [INFO] main: TriangleFileReader created.
+2020-36-03 08:36:20.245 [INFO] main: Finishing reading from file: src/triangles.txt
+2020-37-03 08:37:11.985 [INFO] main: TriangleFileReader created.
+2020-37-03 08:37:12.273 [INFO] main: Finishing reading from file: src/triangles.txt
+2020-37-03 08:37:37.657 [INFO] main: TriangleFileReader created.
+2020-37-03 08:37:37.994 [INFO] main: Finishing reading from file: src/triangles.txt
+2020-38-03 08:38:08.633 [INFO] main: TriangleFileReader created.
+2020-38-03 08:38:08.940 [INFO] main: Finishing reading from file: src/triangles.txt
+2020-50-03 08:50:19.283 [ERROR] main: Invalid data while parsing

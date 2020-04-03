@@ -3,7 +3,7 @@ package by.epam.shape.parser;
 import by.epam.shape.entity.Point;
 import by.epam.shape.entity.Triangle;
 import by.epam.shape.exception.InvalidParsingDataException;
-import by.epam.shape.validator.FileContentValidator;
+import by.epam.shape.validator.TriangleFileValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +11,7 @@ public class TriangleParser {
     private static final Logger LOGGER = LogManager.getLogger(TriangleParser.class);
     
     public Triangle parse(String triangleData) throws InvalidParsingDataException {
-        FileContentValidator fileContentValidator = new FileContentValidator();
+        TriangleFileValidator fileContentValidator = new TriangleFileValidator();
         if (!fileContentValidator.isValidTriangleString(triangleData)){
             LOGGER.error("Invalid data while parsing");
             throw new InvalidParsingDataException();
