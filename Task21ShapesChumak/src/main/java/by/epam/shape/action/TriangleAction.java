@@ -1,4 +1,4 @@
-package by.epam.shape.util;
+package by.epam.shape.action;
 
 import by.epam.shape.entity.Point;
 import by.epam.shape.entity.Triangle;
@@ -10,8 +10,8 @@ import java.util.List;
 
 import static java.lang.Math.abs;
 
-public class TriangleCalculator {
-    private final Logger LOGGER = LogManager.getLogger(TriangleCalculator.class);
+public class TriangleAction {
+    private final Logger LOGGER = LogManager.getLogger(TriangleAction.class);
 
     public double calculateArea(Triangle triangle) {
         Point a = triangle.getA();
@@ -43,7 +43,7 @@ public class TriangleCalculator {
         return sides;
     }
 
-    public double calculateDistance(Point a, Point b) {
+    private double calculateDistance(Point a, Point b) {
         double dx = abs(a.getX() - b.getX());
         double dy = abs(a.getY() - b.getY());
         LOGGER.info("Calculated distance between points: " + a + " and " + b);
