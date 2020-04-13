@@ -1,15 +1,16 @@
-package by.epam.shape.repository;
+package by.epam.shape.repository.impl;
 
 import by.epam.shape.entity.Triangle;
-import by.epam.shape.factory.impl.TriangleFactory;
-import by.epam.shape.repository.specification.TriangleSpecification;
+import by.epam.shape.repository.ShapeRepository;
+import by.epam.shape.repository.ShapeSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class TriangleRepository{
+public class TriangleRepository implements ShapeRepository<Triangle> {
     private static final TriangleRepository instance = new TriangleRepository();
     private final List<Triangle> triangles = new ArrayList<>();
     private static final Logger LOGGER = LogManager.getLogger(TriangleRepository.class);
@@ -20,17 +21,20 @@ public class TriangleRepository{
         return instance;
     }
 
-    public void addTriangle(Triangle triangle) {
+    @Override
+    public void add(Triangle triangle) {
         triangles.add(triangle);
         LOGGER.info(triangle + " added to repository");
     }
 
-    public void removeTriangle(Triangle triangle) {
+    @Override
+    public void remove(Triangle triangle) {
         triangles.remove(triangle);
         LOGGER.info(triangle + " removed from repository");
     }
 
-    public void updateTriangle(Triangle triangle) {
+    @Override
+    public void update(Triangle triangle) {
         int index = -1;
         for (int i = 0; i< triangles.size(); i++){
             if (triangles.get(i).getId() == triangle.getId()){
@@ -44,7 +48,16 @@ public class TriangleRepository{
         }
     }
 
-    public List<Triangle> query(TriangleSpecification specification) {
+    @Override
+    public List<Triangle> sort(Comparator<Triangle> comparator){
+        List<Triangle> sortedList = new ArrayList<>(triangles);
+        sortedList.sort(comparator);
+        LOGGER.info("List: " + triangles + " sorted with comparator: " + comparator);
+        return sortedList;
+    }
+
+    @Override
+    public List<Triangle> query(ShapeSpecification<Triangle> specification) {
         List<Triangle> triangleList = new ArrayList<>();
         for (Triangle triangle : triangles){
             if (specification.isSpecified(triangle)){

@@ -27,7 +27,7 @@ public class TriangleFileReaderTest {
 
     @Test
     public void testReadFromFile() throws Exception {
-        List<String> fileContent = triangleFileReader.readFromFile("src/triangles.txt");
+        List<String> fileContent = triangleFileReader.readFromFile("src/main/resources/triangles.txt");
         Assert.assertEquals(fileContent, expectedContent);
     }
 }

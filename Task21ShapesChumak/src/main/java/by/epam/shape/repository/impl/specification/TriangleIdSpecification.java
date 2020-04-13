@@ -1,9 +1,9 @@
-package by.epam.shape.repository.specification.impl;
+package by.epam.shape.repository.impl.specification;
 
 import by.epam.shape.entity.Triangle;
-import by.epam.shape.repository.specification.TriangleSpecification;
+import by.epam.shape.repository.ShapeSpecification;
 
-public class TriangleIdSpecification implements TriangleSpecification {
+public class TriangleIdSpecification implements ShapeSpecification<Triangle> {
 
     private long id;
 

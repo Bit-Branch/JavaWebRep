@@ -1,10 +1,10 @@
-package by.epam.shape.repository.specification.impl;
+package by.epam.shape.repository.impl.specification;
 
 import by.epam.shape.entity.Triangle;
-import by.epam.shape.repository.specification.TriangleSpecification;
+import by.epam.shape.repository.ShapeSpecification;
 import by.epam.shape.action.TriangleAction;
 
-public class TriangleAreaSpecification implements TriangleSpecification {
+public class TriangleAreaSpecification implements ShapeSpecification<Triangle> {
     private double minArea;
     private double maxArea;
 

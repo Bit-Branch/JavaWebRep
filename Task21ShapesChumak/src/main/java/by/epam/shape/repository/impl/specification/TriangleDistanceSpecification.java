@@ -1,10 +1,10 @@
-package by.epam.shape.repository.specification.impl;
+package by.epam.shape.repository.impl.specification;
 
 import by.epam.shape.entity.Point;
 import by.epam.shape.entity.Triangle;
-import by.epam.shape.repository.specification.TriangleSpecification;
+import by.epam.shape.repository.ShapeSpecification;
 
-public class TriangleDistanceSpecification implements TriangleSpecification {
+public class TriangleDistanceSpecification implements ShapeSpecification<Triangle> {
     private Point boundaryPoint;
 
     public TriangleDistanceSpecification(Point boundaryPoint){

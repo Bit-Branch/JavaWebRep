@@ -1,7 +1,6 @@
 package by.epam.shape.validator;
 
 import by.epam.shape.exception.FileContentException;
-import by.epam.shape.repository.TriangleRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,10 +23,7 @@ public class TriangleFileValidator {
         return condition;
     }
 
-    public List<String> validate(List<String> fileStrings) throws FileContentException {
-        if (fileStrings.isEmpty()){
-            throw new FileContentException("File is empty");
-        }
+    public List<String> validate(List<String> fileStrings){
         List<String> validatedStrings = new ArrayList<>();
         for (String str : fileStrings){
             if (isValidTriangleString(str)){
