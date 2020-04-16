@@ -18,6 +18,7 @@ public class TriangleParser implements ShapeParser<Triangle> {
     @Override
     public Triangle parse(String triangleData) throws InvalidParsingDataException {
         List<Point> points = parseToPoints(triangleData);
+        LOGGER.info("Parsed data to triangle: " + triangleData);
         return new Triangle(points.get(0),points.get(1),points.get(2));
     }
 
@@ -33,6 +34,7 @@ public class TriangleParser implements ShapeParser<Triangle> {
         for (int i = 0; i < coordinates.length; i += 2) {
             points.add(new Point(Double.parseDouble(coordinates[i]), Double.parseDouble(coordinates[i + 1])));
         }
+        LOGGER.info("Parsed data to points: " + triangleData);
         return points;
     }
 

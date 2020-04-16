@@ -58,13 +58,17 @@ public class TriangleValidator {
 
     public boolean isEquilateral(Triangle triangle){
         List<Double> lengths = calculateLengths(triangle);
-        return (lengths.get(0).equals(lengths.get(1))) & (lengths.get(1).equals(lengths.get(2)));
+        boolean isEquilateral = (lengths.get(0).equals(lengths.get(1))) & (lengths.get(1).equals(lengths.get(2)));
+        LOGGER.info(triangle + " is equilateral: " + isEquilateral);
+        return isEquilateral;
 
     }
 
     public boolean isIsosceles(Triangle triangle){
         List<Double> lengths = calculateLengths(triangle);
-        return (lengths.get(0).equals(lengths.get(1))) || (lengths.get(1).equals(lengths.get(2)));
+        boolean isIsosceles = (lengths.get(0).equals(lengths.get(1))) || (lengths.get(1).equals(lengths.get(2)));
+        LOGGER.info(triangle + " is isosceles: " + isIsosceles);
+        return isIsosceles;
     }
 
     public boolean isRectangular(Triangle triangle){
@@ -79,6 +83,25 @@ public class TriangleValidator {
         return isRectangular;
     }
 
+    public boolean isObtuse(Triangle triangle){
+        double ab = calculateDistance(triangle.getA(),triangle.getB());
+        double bc = calculateDistance(triangle.getB(),triangle.getC());
+        double ac = calculateDistance(triangle.getA(),triangle.getC());
+        boolean isObtuse = false;
+        if (ab*ab > bc*bc+ac*ac || bc*bc > ab*ab+ac*ac || ac*ac > bc*bc+ab*ab){
+            isObtuse = true;
+        }
+        LOGGER.info(triangle + " is obtuse: " + isObtuse);
+        return isObtuse;
+    }
 
+    public boolean isAcute(Triangle triangle){
+        boolean isAcute = false;
+        if (isTriangle(triangle) && !isRectangular(triangle) && !isObtuse(triangle)){
+            isAcute = true;
+        }
+        LOGGER.info(triangle + " is acute: " + isAcute);
+        return isAcute;
+    }
 
 }

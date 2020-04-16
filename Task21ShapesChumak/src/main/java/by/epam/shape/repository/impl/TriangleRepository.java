@@ -64,6 +64,7 @@ public class TriangleRepository implements ShapeRepository<Triangle> {
                 triangleList.add(triangle);
             }
         }
+        LOGGER.info("Generate query with specification: " + specification + " and get list: " + triangleList);
         return triangleList;
     }
 }

@@ -119,10 +119,15 @@ public class Triangle extends Shape implements ObservableShape {
 
     @Override
     public String toString() {
-        return this.getClass().getName() + "@" +
-                "id=" + id +
-                ", a=" + a +
-                ", b=" + b +
-                ", c=" + c;
+        StringBuilder stringBuilder = new StringBuilder(getClass().getName());
+        stringBuilder.append("@ id=");
+        stringBuilder.append(id);
+        stringBuilder.append(", a=");
+        stringBuilder.append(a);
+        stringBuilder.append(", b=");
+        stringBuilder.append(b);
+        stringBuilder.append(", c=");
+        stringBuilder.append(c);
+        return stringBuilder.toString();
     }
 }

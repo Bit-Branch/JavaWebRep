@@ -1207,3 +1207,94 @@
 2020-13-13 07:13:18.593 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@x: 0.0,y: -1.0 and by.epam.shape.entity.Point@x: -2.0,y: 5.0
 2020-13-13 07:13:18.593 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@x: -3.0,y: -2.0 and by.epam.shape.entity.Point@x: -2.0,y: 5.0
 2020-13-13 07:13:18.594 [INFO] main: by.epam.shape.entity.Triangle@id=6, a=by.epam.shape.entity.Point@x: -3.0,y: -2.0, b=by.epam.shape.entity.Point@x: 0.0,y: -1.0, c=by.epam.shape.entity.Point@x: -2.0,y: 5.0 is rectangular: true
+2020-16-16 07:16:09.726 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.742 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.757 [INFO] main: Triangle with id 1 updated in warehouse
+2020-16-16 07:16:09.757 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.757 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.757 [INFO] main: Triangle with id 1 updated in warehouse
+2020-16-16 07:16:09.757 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.757 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.757 [INFO] main: Triangle with id 1 updated in warehouse
+2020-16-16 07:16:09.757 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 1.0: 0.5
+2020-16-16 07:16:09.757 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 1.0: 0.5
+2020-16-16 07:16:09.757 [INFO] main: Triangle with id 1 updated in warehouse
+2020-16-16 07:16:09.757 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 1.0: 0.5
+2020-16-16 07:16:09.757 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:0.0,y: 0.0 and by.epam.shape.entity.Point@ x:1.0,y: 0.0
+2020-16-16 07:16:09.757 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:1.0,y: 0.0 and by.epam.shape.entity.Point@ x:0.0,y: 1.0
+2020-16-16 07:16:09.757 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:0.0,y: 1.0 and by.epam.shape.entity.Point@ x:0.0,y: 0.0
+2020-16-16 07:16:09.757 [INFO] main: Calculated sides lengths
+2020-16-16 07:16:09.757 [INFO] main: Calculated perimeter of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 1.0: 3.414213562373095
+2020-16-16 07:16:09.788 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 5.0: 2.5
+2020-16-16 07:16:09.788 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 5.0: 2.5
+2020-16-16 07:16:09.788 [INFO] main: Triangle with id 1 updated in warehouse
+2020-16-16 07:16:09.835 [INFO] main: by.epam.shape.entity.Point@ x:0.0,y: 0.0 by.epam.shape.entity.Point@ x:1.0,y: 0.0 by.epam.shape.entity.Point@ x:0.0,y: 1.0 makes a triangle: true
+2020-16-16 07:16:09.835 [INFO] main: Created triangle with coordinates: by.epam.shape.entity.Point@ x:0.0,y: 0.0 by.epam.shape.entity.Point@ x:1.0,y: 0.0 by.epam.shape.entity.Point@ x:0.0,y: 1.0
+2020-16-16 07:16:09.835 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=1, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 1.0: 0.5
+2020-16-16 07:16:09.835 [INFO] main: by.epam.shape.entity.Point@ x:0.0,y: 0.0 by.epam.shape.entity.Point@ x:1.0,y: 0.0 by.epam.shape.entity.Point@ x:0.0,y: 1.0 makes a triangle: true
+2020-16-16 07:16:09.835 [INFO] main: Created triangle with coordinates: by.epam.shape.entity.Point@ x:0.0,y: 0.0 by.epam.shape.entity.Point@ x:1.0,y: 0.0 by.epam.shape.entity.Point@ x:0.0,y: 1.0
+2020-16-16 07:16:09.835 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:0.0,y: 0.0 and by.epam.shape.entity.Point@ x:1.0,y: 0.0
+2020-16-16 07:16:09.835 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:1.0,y: 0.0 and by.epam.shape.entity.Point@ x:0.0,y: 1.0
+2020-16-16 07:16:09.835 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:0.0,y: 1.0 and by.epam.shape.entity.Point@ x:0.0,y: 0.0
+2020-16-16 07:16:09.835 [INFO] main: Calculated sides lengths
+2020-16-16 07:16:09.835 [INFO] main: Calculated perimeter of theby.epam.shape.entity.Triangle@ id=2, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:1.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 1.0: 3.414213562373095
+2020-16-16 07:16:09.835 [INFO] main: File found by path: src/main/resources/triangles.txt
+2020-16-16 07:16:09.851 [INFO] main: Finishing reading from file
+2020-16-16 07:16:09.851 [INFO] main: String 0 0 0 1 1 0 is valid: true
+2020-16-16 07:16:09.851 [INFO] main: String 0 0 0 2 2 0 is valid: true
+2020-16-16 07:16:09.851 [INFO] main: String 1 1 1 2 3 3 is valid: true
+2020-16-16 07:16:09.851 [INFO] main: String  is valid: false
+2020-16-16 07:16:09.851 [INFO] main: String 0 0 1 1 4 4 is valid: true
+2020-16-16 07:16:09.851 [INFO] main: String 08 28 8 8 8 is valid: false
+2020-16-16 07:16:09.851 [INFO] main: String 8ad 2 2 4 5 is valid: false
+2020-16-16 07:16:09.851 [INFO] main: String 1 1 0 0 0 0 is valid: true
+2020-16-16 07:16:09.851 [INFO] main: Strings [0 0 0 1 1 0, 0 0 0 2 2 0, 1 1 1 2 3 3, , 0 0 1 1 4 4, 08 28 8 8 8, 8ad 2 2 4 5, 1 1 0 0 0 0] has valid strings: [0 0 0 1 1 0, 0 0 0 2 2 0, 1 1 1 2 3 3, 0 0 1 1 4 4, 1 1 0 0 0 0]
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.851 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 0.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.851 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:0.0,y: 0.0: 0.0
+2020-16-16 07:16:09.851 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.851 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.851 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.851 [INFO] main: String 5t 08 28 8 8 8 is valid: false
+2020-16-16 07:16:09.851 [ERROR] main: Invalid data while parsing
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Calculated area of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:0.0,y: 0.0, b=by.epam.shape.entity.Point@ x:0.0,y: 1.0, c=by.epam.shape.entity.Point@ x:1.0,y: 0.0: -0.5
+2020-16-16 07:16:09.867 [INFO] main: Triangle with id 4 updated in warehouse
+2020-16-16 07:16:09.867 [INFO] main: String 0 0 0 1 1 0 is valid: true
+2020-16-16 07:16:09.867 [INFO] main: Parsed data to points: 0 0 0 1 1 0
+2020-16-16 07:16:09.867 [INFO] main: Parsed data to triangle: 0 0 0 1 1 0
+2020-16-16 07:16:09.867 [INFO] main: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 by.epam.shape.entity.Point@ x:0.0,y: -1.0 by.epam.shape.entity.Point@ x:-2.0,y: 5.0 makes a triangle: true
+2020-16-16 07:16:09.867 [INFO] main: Created triangle with coordinates: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 by.epam.shape.entity.Point@ x:0.0,y: -1.0 by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.867 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 and by.epam.shape.entity.Point@ x:0.0,y: -1.0
+2020-16-16 07:16:09.867 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:0.0,y: -1.0 and by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.867 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 and by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.867 [INFO] main: Calculated lengths of theby.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:-3.0,y: -2.0, b=by.epam.shape.entity.Point@ x:0.0,y: -1.0, c=by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.882 [INFO] main: by.epam.shape.entity.Triangle@ id=4, a=by.epam.shape.entity.Point@ x:-3.0,y: -2.0, b=by.epam.shape.entity.Point@ x:0.0,y: -1.0, c=by.epam.shape.entity.Point@ x:-2.0,y: 5.0 is equilateral: false
+2020-16-16 07:16:09.882 [INFO] main: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 by.epam.shape.entity.Point@ x:0.0,y: -1.0 by.epam.shape.entity.Point@ x:-2.0,y: 5.0 makes a triangle: true
+2020-16-16 07:16:09.882 [INFO] main: Created triangle with coordinates: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 by.epam.shape.entity.Point@ x:0.0,y: -1.0 by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.882 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 and by.epam.shape.entity.Point@ x:0.0,y: -1.0
+2020-16-16 07:16:09.882 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:0.0,y: -1.0 and by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.882 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 and by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.882 [INFO] main: Calculated lengths of theby.epam.shape.entity.Triangle@ id=5, a=by.epam.shape.entity.Point@ x:-3.0,y: -2.0, b=by.epam.shape.entity.Point@ x:0.0,y: -1.0, c=by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.882 [INFO] main: by.epam.shape.entity.Triangle@ id=5, a=by.epam.shape.entity.Point@ x:-3.0,y: -2.0, b=by.epam.shape.entity.Point@ x:0.0,y: -1.0, c=by.epam.shape.entity.Point@ x:-2.0,y: 5.0 is isosceles: false
+2020-16-16 07:16:09.882 [INFO] main: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 by.epam.shape.entity.Point@ x:0.0,y: -1.0 by.epam.shape.entity.Point@ x:-2.0,y: 5.0 makes a triangle: true
+2020-16-16 07:16:09.882 [INFO] main: Created triangle with coordinates: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 by.epam.shape.entity.Point@ x:0.0,y: -1.0 by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.882 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 and by.epam.shape.entity.Point@ x:0.0,y: -1.0
+2020-16-16 07:16:09.898 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:0.0,y: -1.0 and by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.898 [INFO] main: Calculated distance between points: by.epam.shape.entity.Point@ x:-3.0,y: -2.0 and by.epam.shape.entity.Point@ x:-2.0,y: 5.0
+2020-16-16 07:16:09.898 [INFO] main: by.epam.shape.entity.Triangle@ id=6, a=by.epam.shape.entity.Point@ x:-3.0,y: -2.0, b=by.epam.shape.entity.Point@ x:0.0,y: -1.0, c=by.epam.shape.entity.Point@ x:-2.0,y: 5.0 is rectangular: true

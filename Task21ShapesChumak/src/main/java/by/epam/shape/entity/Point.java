@@ -52,7 +52,12 @@ public class Point {
 
     @Override
     public String toString() {
-        return getClass().getName() + "@" + "x: " + x + ",y: " + y;
+        StringBuilder stringBuilder = new StringBuilder(getClass().getName());
+        stringBuilder.append("@ x:");
+        stringBuilder.append(x);
+        stringBuilder.append(",y: ");
+        stringBuilder.append(y);
+        return stringBuilder.toString();
     }
 
 }
