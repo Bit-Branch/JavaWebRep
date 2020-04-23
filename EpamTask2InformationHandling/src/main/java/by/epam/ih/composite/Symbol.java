@@ -2,11 +2,11 @@ package by.epam.ih.composite;
 
 import by.epam.ih.exception.NoSuchOperationException;
 
-public class Leaf implements Component<String> {
+public class Symbol implements Component<String> {
     private String component;
     private SentenceToken token;
 
-    public Leaf(String component, SentenceToken type) {
+    public Symbol(String component, SentenceToken type) {
         this.component = component;
         this.token = type;
     }
