@@ -1,34 +1,46 @@
 package by.epam.ih.parser.impl;
 
-import by.epam.ih.composite.Component;
-import by.epam.ih.composite.Composite;
-import by.epam.ih.composite.SentenceToken;
-import by.epam.ih.composite.Symbol;
-import by.epam.ih.exception.NoSuchOperationException;
+import by.epam.ih.composite.TextComponent;
+import by.epam.ih.composite.impl.Composite;
+import by.epam.ih.composite.impl.SentenceType;
+import by.epam.ih.composite.impl.Symbol;
+import by.epam.ih.exception.ComponentException;
 import by.epam.ih.parser.AbstractParser;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SentenceParser implements AbstractParser {
 
-    private final String SENTENCE_PATTERN = "^[A-Z]{1}[A-Za-z,;'\"\\s]+[.?!]$";
+    private static final String SENTENCE_PATTERN = "[\\.]{3}\\s|[\\.!?]\\s?";
     private static SentenceParser instance = new SentenceParser();
 
+    private SentenceParser(){}
     public static SentenceParser getInstance() {
         return instance;
     }
 
     @Override
-    public Component parse(String text) {
-        Component components = new Composite(SentenceToken.SENTENCE);
-        String[] sentences = text.split(SENTENCE_PATTERN);
-        for (String sentence : sentences) {
-            if (sentence.length() > 0) {
-                try {
-                    components.add(new Symbol(sentence,SentenceToken.SENTENCE));
-                } catch (NoSuchOperationException e) {
-                    e.printStackTrace();
-                }
-            }
+    public Composite parse(String value) throws ComponentException {
+        List<String> sentences = new ArrayList<>();
+        Composite paragraph = new Composite(SentenceType.PARAGRAPH);
+        Pattern patternSentence = Pattern.compile(SENTENCE_PATTERN);
+        Matcher matcherSentence = patternSentence.matcher(value);
+
+        int start = 0;
+        int end;
+
+        while (matcherSentence.find()) {
+            end = matcherSentence.end();
+            String sentence = value.substring(start, end).trim();
+            start = end;
+            sentences.add(sentence);
         }
-        return components;
+        for (String sentence : sentences) {
+            paragraph.add(WordParser.getInstance().parse(sentence));
+        }
+        return paragraph;
     }
 }

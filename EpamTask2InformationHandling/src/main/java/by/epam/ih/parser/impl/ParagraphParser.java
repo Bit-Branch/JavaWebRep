@@ -1,33 +1,29 @@
 package by.epam.ih.parser.impl;
 
-import by.epam.ih.composite.Component;
-import by.epam.ih.composite.Composite;
-import by.epam.ih.composite.SentenceToken;
-import by.epam.ih.composite.Symbol;
-import by.epam.ih.exception.NoSuchOperationException;
+import by.epam.ih.composite.TextComponent;
+import by.epam.ih.composite.impl.Composite;
+import by.epam.ih.composite.impl.SentenceType;
+import by.epam.ih.composite.impl.Symbol;
+import by.epam.ih.exception.ComponentException;
 import by.epam.ih.parser.AbstractParser;
 
 public class ParagraphParser implements AbstractParser {
+    private static final String PARAGRAPH_PATTERN = "\r{0,}\n\\s{0,4}";
 
     private static ParagraphParser instance = new ParagraphParser();
 
+    private ParagraphParser(){}
     public static ParagraphParser getInstance() {
         return instance;
     }
 
     @Override
-    public Component parse(String text) {
-        Component components = new Composite(SentenceToken.PARAGRAPH);
-        String[] paragraphs = text.split(System.getProperty("line.separator"));
+    public Composite parse(String value) throws ComponentException {
+        Composite sentences = new Composite(SentenceType.TEXT);
+        String[] paragraphs = value.split(PARAGRAPH_PATTERN);
         for (String paragraph : paragraphs) {
-            if (paragraph.length() > 0) {
-                try {
-                    components.add(new Symbol(paragraph,SentenceToken.PARAGRAPH));
-                } catch (NoSuchOperationException e) {
-                    e.printStackTrace();
-                }
-            }
+            sentences.add(SentenceParser.getInstance().parse(paragraph));
         }
-        return components;
+        return sentences;
     }
 }

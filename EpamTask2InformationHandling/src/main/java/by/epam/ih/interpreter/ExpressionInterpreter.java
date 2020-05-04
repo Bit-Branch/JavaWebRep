@@ -23,36 +23,36 @@ public class ExpressionInterpreter {
             char temp = lexeme.charAt(0);
             switch (temp) {
                 case '+':
-                    listExpression.add(new TerminalExpressionAdd());
+                    listExpression.add(new AddTerminalExpression());
                     break;
                 case '-':
-                    listExpression.add(new TerminalExpressionSub());
+                    listExpression.add(new SubTerminalExpression());
                     break;
                 case '*':
-                    listExpression.add(new TerminalExpressionMultiply());
+                    listExpression.add(new MultiplyTerminalExpression());
                     break;
                 case '/':
-                    listExpression.add(new TerminalExpressionDivide());
+                    listExpression.add(new DivideTerminalExpression());
                     break;
                 case '|':
-                    listExpression.add(new TerminalExpressionOr());
+                    listExpression.add(new OrTerminalExpression());
                     break;
                 case '^':
-                    listExpression.add(new TerminalExpressionXor());
+                    listExpression.add(new XorTerminalExpression());
                     break;
                 case '&':
-                    listExpression.add(new TerminalExpressionAnd());
+                    listExpression.add(new AndTerminalExpression());
                     break;
                 case '<':
-                    listExpression.add(new TerminalExpressionLeftShift());
+                    listExpression.add(new LeftShiftTerminalExpression());
                     break;
                 case '>':
-                    listExpression.add(new TerminalExpressionRightShift());
+                    listExpression.add(new RightShiftTerminalExpression());
                     break;
                 default:
                     Scanner scan = new Scanner(lexeme);
                     if (scan.hasNextInt()) {
-                        listExpression.add(new NonTerminalExpressionNumber(scan.nextInt()));
+                        listExpression.add(new NumberNonTerminalExpression(scan.nextInt()));
                     }
             }
         }
