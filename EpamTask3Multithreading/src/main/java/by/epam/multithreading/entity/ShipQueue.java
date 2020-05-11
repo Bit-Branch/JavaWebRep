@@ -1,5 +1,6 @@
 package by.epam.multithreading.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -8,11 +9,11 @@ public class ShipQueue {
     private List<Ship> queue;
 
     public ShipQueue(){
-        queue = new CopyOnWriteArrayList<Ship>();
+        queue = new ArrayList<>();
     }
 
     public ShipQueue(List<Ship> list){
-        queue = new CopyOnWriteArrayList<Ship>(list);
+        queue = new ArrayList<>(list);
     }
 
     public boolean addToQueue(Ship ship) {

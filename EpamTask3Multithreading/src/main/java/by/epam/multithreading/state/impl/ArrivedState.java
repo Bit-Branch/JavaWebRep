@@ -5,11 +5,11 @@ import by.epam.multithreading.state.ShipState;
 
 public class ArrivedState implements ShipState {
     public void next(Ship ship) {
-        ship.setState(new ChargingState());
+        ship.setShipState(new ChargingState());
     }
 
     public void prev(Ship ship) {
-        ship.setState(new InRouteState());
+        ship.setShipState(new InRouteState());
     }
 
     public void printStatus() {

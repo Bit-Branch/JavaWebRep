@@ -1,5 +1,6 @@
 package by.epam.multithreading.action;
 
+import by.epam.multithreading.entity.Dock;
 import by.epam.multithreading.entity.Port;
 
 import java.util.concurrent.Semaphore;
@@ -10,13 +11,13 @@ import by.epam.multithreading.entity.Ship;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class PortManager {
+public class DockManager {
     private Port port;
     private Semaphore semaphore;
     private ReentrantLock lock = new ReentrantLock();
-    private static final Logger LOGGER = LogManager.getLogger(PortManager.class);
+    private static final Logger LOGGER = LogManager.getLogger(DockManager.class);
 
-    public PortManager(Semaphore semaphore, Port port){
+    public DockManager(Semaphore semaphore, Port port){
         this.semaphore = semaphore;
         this.port = port;
     }
@@ -29,17 +30,15 @@ public class PortManager {
             Thread.currentThread().interrupt();
         }
         lock.lock();
-        int j = 0;
-        boolean b = false;
-        while (!b && j<port.getDocks().size()){
-            if (!port.getDocks().get(j).isBusy()){
-                port.getDocks().get(j).setBusy(true);
-                ship.setDockNumber(j);
-                b = true;
+        for (Dock dock: port.getDocks()
+             ) {
+            if (!dock.isBusy()){
+                dock.setShip(ship);
+                dock.setBusy(true);
+                LOGGER.info("Ship " + Thread.currentThread().getName() +" arrived at dock");
+                break;
             }
-            j++;
         }
-        LOGGER.info("Ship " + ship +" arrived at dock " + ship.getDockNumber());
         lock.unlock();
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -49,7 +48,20 @@ public class PortManager {
         }
     }
 
-    public void leaveShip(Ship ship) {
-        //--
+    public void leaveShip(Dock dock) {
+        lock.lock();
+        if (dock.getShip().getContainerCount() > (port.getContainersCount()/port.getDocks().size())) {
+            LOGGER.info("Ship " + Thread.currentThread().getName() + " leave dock with nothing ");
+            dock.setShip(null);
+            dock.setBusy(false);
+            lock.unlock();
+            semaphore.release();
+        } else {
+            if (dock.getShip().getContainerCount() > 0) {
+
+            } else {
+
+            }
+        }
     }
 }

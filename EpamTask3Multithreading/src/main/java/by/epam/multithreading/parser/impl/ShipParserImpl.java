@@ -16,7 +16,7 @@ public class ShipParserImpl implements ShipParser {
         String[] data = shipData.split(DELIMITER);
         Ship ship = new Ship();
         ship.setContainerCount(Integer.parseInt(data[0]));
-        ship.setDockNumber(Integer.parseInt(data[1]));
+        ship.setId(Integer.parseInt(data[1]));
         LOGGER.info("Parsed data to ship: " + shipData);
         return ship;
     }

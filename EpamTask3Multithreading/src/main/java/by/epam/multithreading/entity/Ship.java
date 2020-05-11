@@ -3,21 +3,15 @@ package by.epam.multithreading.entity;
 import by.epam.multithreading.state.ShipState;
 import by.epam.multithreading.state.impl.InRouteState;
 
-public class Ship{
+public class Ship extends Thread{
+    private long id;
     private int containerCount;
-    private boolean isFull;
-    private int dockNumber;
-    private ShipState state;
+    private ShipState shipState;
 
     public Ship() {
-        state = new InRouteState();
+        shipState = new InRouteState();
     }
 
-    public Ship(int containerCount, boolean isFull, int dockNumber) {
-        this.containerCount = containerCount;
-        this.isFull = isFull;
-        this.dockNumber = dockNumber;
-    }
 
     public int getContainerCount() {
         return containerCount;
@@ -27,28 +21,20 @@ public class Ship{
         this.containerCount = containerCount;
     }
 
-    public boolean isFull() {
-        return isFull;
+    public long getId() {
+        return id;
     }
 
-    public void setFull(boolean full) {
-        isFull = full;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public int getDockNumber() {
-        return dockNumber;
+    public ShipState getShipState() {
+        return shipState;
     }
 
-    public void setDockNumber(int dockNumber) {
-        this.dockNumber = dockNumber;
-    }
-
-    public ShipState getState() {
-        return state;
-    }
-
-    public void setState(ShipState state) {
-        this.state = state;
+    public void setShipState(ShipState shipState) {
+        this.shipState = shipState;
     }
 
     @Override
@@ -59,17 +45,15 @@ public class Ship{
         Ship ship = (Ship) o;
 
         return containerCount == ship.containerCount &&
-                isFull == ship.isFull &&
-                dockNumber == ship.dockNumber &&
-                state != null ? state.equals(ship.state) : ship.state == null;
+                id == ship.id &&
+                shipState != null ? shipState.equals(ship.shipState) : ship.shipState == null;
     }
 
     @Override
     public int hashCode() {
-        int result = containerCount;
-        result = 31 * result + (isFull ? 1 : 0);
-        result = 31 * result + dockNumber;
-        result = 31 * result + (state != null ? state.hashCode() : 0);
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + containerCount;
+        result = 31 * result + (shipState != null ? shipState.hashCode() : 0);
         return result;
     }
 }

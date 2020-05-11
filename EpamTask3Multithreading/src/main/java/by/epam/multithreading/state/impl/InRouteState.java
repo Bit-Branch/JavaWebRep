@@ -5,7 +5,7 @@ import by.epam.multithreading.state.ShipState;
 
 public class InRouteState implements ShipState {
     public void next(Ship ship) {
-        ship.setState(new ArrivedState());
+        ship.setShipState(new ArrivedState());
     }
 
     public void prev(Ship ship) {
