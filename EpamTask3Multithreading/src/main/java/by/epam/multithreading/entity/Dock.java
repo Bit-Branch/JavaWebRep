@@ -1,19 +1,22 @@
 package by.epam.multithreading.entity;
 
+
+import java.util.ArrayDeque;
+
 public class Dock {
     private boolean isBusy;
     private Ship ship;
+    private Port port;
 
-    public Dock() {
-    }
-
-    public Dock(boolean isBusy) {
+    public Dock(boolean isBusy, Port port) {
         this.isBusy = isBusy;
+        this.port = port;
     }
 
-    public Dock(boolean isBusy, Ship ship) {
+    public Dock(boolean isBusy, Ship ship, Port port) {
         this.isBusy = isBusy;
         this.ship = ship;
+        this.port = port;
     }
 
     public Ship getShip() {
@@ -30,6 +33,16 @@ public class Dock {
 
     public void setBusy(boolean busy) {
         isBusy = busy;
+    }
+
+    public void immerse(){
+        ship.setContainers(new ArrayDeque<>(port.getContainers(ship.getCapacity())));
+        ship.setShipState(ShipState.FULL);
+    }
+
+    public void unload(){
+        port.addContainers(ship.getContainers());
+        ship.setShipState(ShipState.EMPTY);
     }
 
     @Override

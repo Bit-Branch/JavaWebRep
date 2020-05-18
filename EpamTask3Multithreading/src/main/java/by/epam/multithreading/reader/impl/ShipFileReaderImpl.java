@@ -1,6 +1,7 @@
 package by.epam.multithreading.reader.impl;
 
 import by.epam.multithreading.exception.ReadFromFileException;
+import by.epam.multithreading.reader.ShipFileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,8 +12,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class ShipFileReaderImpl {
-    private static final String DEFAULT_FILEPATH = "main/resources/Ships.txt";
+public class ShipFileReaderImpl implements ShipFileReader {
+    private static final String DEFAULT_FILEPATH = "src/main/resources/Ships.txt";
     private static final Logger LOGGER = LogManager.getLogger(ShipFileReaderImpl.class);
 
     public ShipFileReaderImpl() {
