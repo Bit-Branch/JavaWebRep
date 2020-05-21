@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<banks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://www.example.com/banks"
+          xsi:schemaLocation="http://www.example.com/students banks.xsd">
+
+
+    <bank accountID="a5555" depositType="cumulative">
+        <name>Bank of India</name>
+        <country>India</country>
+        <depositor>Abraham A.I.</depositor>
+        <accountOnDeposit>1200.0</accountOnDeposit>
+        <profitability>5</profitability>
+        <timeConstraints>2007-10-26T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="c5565" depositType="estimated">
+        <name>Union Bank of India</name>
+        <country>India</country>
+        <depositor>Imol D.E.</depositor>
+        <accountOnDeposit>90000.0</accountOnDeposit>
+        <profitability>15</profitability>
+        <timeConstraints>2020-11-22T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="h5587" depositType="metal">
+        <name>Kotak Bank</name>
+        <country>India</country>
+        <depositor>Sten B.G.</depositor>
+        <accountOnDeposit>21480.0</accountOnDeposit>
+        <profitability>11</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+</banks>
