@@ -1,5 +1,5 @@
 
-package by.epam.xmlparser.handler;
+package by.epam.xmlparser.parser.sax;
 
 import by.epam.xmlparser.entity.Bank;
 import by.epam.xmlparser.entity.BankEnum;
@@ -35,7 +35,7 @@ public class BankHandler extends DefaultHandler {
             current.setAccountID(attrs.getValue(ACCOUNT_ID_ATTR).intern());
 
             if (attrs.getLength() == 2) {
-                current.setDepositType(DepositType.valueOf(attrs.getValue(DEPOSIT_TYPE_ATTR)));
+                current.setDepositType(DepositType.fromString(attrs.getValue(DEPOSIT_TYPE_ATTR)));
             }
         }
     }

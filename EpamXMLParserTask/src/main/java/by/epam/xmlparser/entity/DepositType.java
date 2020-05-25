@@ -17,4 +17,13 @@ public enum DepositType {
     public String getValue() {
         return value;
     }
+
+    public static DepositType fromString(String text) {
+        for (DepositType type : DepositType.values()) {
+            if (type.value.equalsIgnoreCase(text)) {
+                return type;
+            }
+        }
+        return null;
+    }
 }

@@ -22,5 +22,14 @@ public enum BankEnum {
     public String getValue() {
         return value;
     }
+
+    public static BankEnum fromString(String text) {
+        for (BankEnum type : BankEnum.values()) {
+            if (type.value.equalsIgnoreCase(text)) {
+                return type;
+            }
+        }
+        return null;
+    }
     
 }

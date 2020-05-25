@@ -1,5 +1,5 @@
 
-package by.epam.xmlparser.parser;
+package by.epam.xmlparser.parser.dom;
 import by.epam.xmlparser.entity.Bank;
 import by.epam.xmlparser.entity.DepositType;
 import by.epam.xmlparser.exception.ElementNotPresentException;
@@ -24,18 +24,18 @@ import java.util.Locale;
 import java.util.Set;
 
 
-public class BanksDOMParser {
-    static final Logger logger = LogManager.getLogger(BanksDOMParser.class);
+public class BankDOMParser {
+    static final Logger LOGGER = LogManager.getLogger(BankDOMParser.class);
     private Set<Bank> banks;
     private DocumentBuilder docBuilder;
     
-    public BanksDOMParser() {
+    public BankDOMParser() {
         banks = new HashSet<Bank>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            logger.error("Parser configuration exception: " + e);
+            LOGGER.error("Parser configuration exception: " + e);
         }
     }
     
@@ -43,21 +43,21 @@ public class BanksDOMParser {
         return banks;
     }
     
-    public void createBanksSet(String fileName) {
+    public void buildBanksSet(String fileName) {
         try {
             Document doc = docBuilder.parse(fileName);
             Element root = doc.getDocumentElement();
             buildSetByTagName("bank", root);
         } catch (IOException e) {
-            logger.error("File error or I/O error: " + e);
+            LOGGER.error("File error or I/O error: " + e);
         } catch (SAXException e) {
-            logger.error("Parsing failure: " + e);
+            LOGGER.error("Parsing failure: " + e);
         } catch (IllegalArgumentException e) {
-            logger.error("uri is null" + e);
+            LOGGER.error("uri is null" + e);
         }
     }
     
-    protected Bank createBank(Element periodicalElement) throws ElementNotPresentException {
+    protected Bank buildBank(Element periodicalElement) throws ElementNotPresentException {
         Bank bank;
         switch (periodicalElement.getTagName()) {
             case "bank":
@@ -69,13 +69,15 @@ public class BanksDOMParser {
         
         bank.setAccountID(periodicalElement.getAttribute("accountID"));
         if (periodicalElement.hasAttribute("depositType")) {
-            bank.setDepositType(DepositType.valueOf(
+            bank.setDepositType(DepositType.fromString(
                     periodicalElement.getAttribute("depositType")));
+        }else {
+            bank.setDepositType(DepositType.SAVINGS);
         }
         bank.setName(getElementTextContent(periodicalElement, "name"));
         bank.setCountry(getElementTextContent(periodicalElement, "country"));
         bank.setDepositor(getElementTextContent(periodicalElement, "depositor"));
-        bank.setAccountOnDeposit(BigDecimal.valueOf(Long.parseLong(getElementTextContent(periodicalElement, "accountOnDeposit"))));
+        bank.setAccountOnDeposit(BigDecimal.valueOf(Double.parseDouble(getElementTextContent(periodicalElement, "accountOnDeposit"))));
         bank.setProfitability(Double.parseDouble(getElementTextContent(periodicalElement, "profitability")));
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd'T'HH:mm:ss", Locale.ENGLISH);
@@ -91,13 +93,13 @@ public class BanksDOMParser {
     }
     
     private void buildSetByTagName(String tagName, Element root) {
-        logger.debug((root.getElementsByTagName(tagName)).getLength());
+        LOGGER.debug((root.getElementsByTagName(tagName)).getLength());
         NodeList periodicalsList = root.getElementsByTagName(tagName);
         for (int i = 0; i < periodicalsList.getLength(); i++) {
             Element bankElement = (Element) periodicalsList.item(i);
             Bank bank = null;
             try {
-                bank = createBank(bankElement);
+                bank = buildBank(bankElement);
                 banks.add(bank);
             } catch (ElementNotPresentException e) {
                 e.printStackTrace();

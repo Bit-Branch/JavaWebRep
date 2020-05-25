@@ -1,32 +1,33 @@
 
-package by.epam.xmlparser.parser;
+package by.epam.xmlparser.parser.sax;
 
 import by.epam.xmlparser.entity.Bank;
-import by.epam.xmlparser.handler.BankHandler;
+import by.epam.xmlparser.errorHandler.BankErrorHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import java.io.IOException;
 import java.util.Set;
 
-
-public class BanksSAXParser {
-    static final Logger logger = LogManager.getLogger(BanksSAXParser.class);
+public class BankSAXParser {
+    static final Logger LOGGER = LogManager.getLogger(BankSAXParser.class);
     private Set<Bank> banks;
     private BankHandler handler;
     private XMLReader reader;
+    private BankErrorHandler errorHandler;
     
-    public BanksSAXParser() {
+    public BankSAXParser() {
         handler = new BankHandler();
-        
+        errorHandler = new BankErrorHandler();
         try {
             reader = XMLReaderFactory.createXMLReader();
             reader.setContentHandler(handler);
         } catch (SAXException e) {
-            logger.error("SAX parser error: " + e.getMessage());
+            LOGGER.error("SAX parser error: " + e.getMessage());
         }
     }
     
@@ -34,13 +35,15 @@ public class BanksSAXParser {
         return banks;
     }
 
-    public void createBanksSet(String fileName) {
+    public void buildBanksSet(String fileName) {
         try {
             reader.parse(fileName);
-        } catch (SAXException e) {
-            logger.error("SAX parser error: " + e);
+        } catch (SAXParseException e) {
+            errorHandler.error(e);
         } catch (IOException e) {
-            logger.error("IO stream error: " + e);
+            LOGGER.error("IO stream error: " + e);
+        } catch (SAXException e) {
+            e.printStackTrace();
         }
         banks = handler.getBanks();
     }

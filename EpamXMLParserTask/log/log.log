@@ -1,0 +1,4 @@
+2020-08-25 08:08:24.992 [ERROR] main: uri is nulljava.lang.IllegalArgumentException: No enum constant by.epam.xmlparser.entity.DepositType.cumulative
+2020-21-25 08:21:17.422 [ERROR] main: uri is nulljava.lang.IllegalArgumentException: No enum constant by.epam.xmlparser.entity.DepositType.cumulative
+2020-22-25 08:22:27.864 [ERROR] main: uri is nulljava.lang.NumberFormatException: For input string: "1200.0"
+2020-25-25 08:25:22.397 [ERROR] main: uri is nulljava.lang.NumberFormatException: For input string: "1200.0"

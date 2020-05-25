@@ -7,7 +7,7 @@
     <element name="banks">
         <complexType>
             <sequence>
-                <element name="bank" type="tns:Bank" minOccurs="1"
+                <element name="bank" type="tns:Bank" minOccurs="16"
                          maxOccurs="unbounded"/>
             </sequence>
         </complexType>
@@ -25,7 +25,7 @@
 
         <attribute name="accountID" type="tns:AccountID" use="required"/>
 
-        <attribute name="depositType" use="optional">
+        <attribute name="depositType" use="optional" default="savings">
             <simpleType>
                 <restriction base="string">
                     <enumeration value="poste restante"/>
@@ -43,7 +43,7 @@
 
     <simpleType name="AccountID">
         <restriction base="ID">
-            <pattern value="[a-z]\d{4}"/>
+            <pattern value="[a-z]\d{4}[-]\d{4}[-]\d{4}[-]\d{4}"/>
         </restriction>
     </simpleType>
 </schema>

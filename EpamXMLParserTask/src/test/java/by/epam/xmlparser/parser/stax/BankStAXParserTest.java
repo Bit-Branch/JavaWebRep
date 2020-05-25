@@ -1,5 +1,4 @@
-package by.epam.xmlparser.parser;
-
+package by.epam.xmlparser.parser.stax;
 
 import by.epam.xmlparser.entity.Bank;
 import by.epam.xmlparser.entity.DepositType;
@@ -13,25 +12,25 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class BanksSAXParserTest {
-    
-    private static BanksSAXParser parser;
+public class BankStAXParserTest {
+
+    private BankStAXParser builder;
 
     @BeforeClass
-    public static void initBuilder() {
-        parser = new BanksSAXParser();
-        parser.createBanksSet("src/main/resources/banks.xml");
+    public void initBuilder() {
+        builder = new BankStAXParser();
+        builder.buildBanksSet("src/main/resources/banks.xml");
     }
 
     @Test
-    public void createBanksSetTestSize() {
-        Assert.assertEquals(16, parser.getBanks().size());
+    public void buildBanksSetTestSize() {
+        Assert.assertEquals(builder.getBanks().size(),16);
     }
-    
+
     @Test
-    public void buildSetPeriodicalsTestFullElementNewspaper() {
+    public void buildBanksSetTestElementBank() {
         Bank bank = new Bank();
-        bank.setAccountID("c5565");
+        bank.setAccountID("c5565-3657-3685-8976");
         bank.setDepositType(DepositType.ESTIMATED);
         bank.setName("Union Bank of India");
         bank.setCountry("India");
@@ -48,7 +47,6 @@ public class BanksSAXParserTest {
         }
         bank.setTimeConstraints(cal);
 
-        Assert.assertTrue(parser.getBanks().contains(bank));
+        Assert.assertTrue(builder.getBanks().contains(bank));
     }
-
 }

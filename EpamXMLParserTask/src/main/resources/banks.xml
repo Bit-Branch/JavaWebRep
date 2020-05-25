@@ -4,7 +4,7 @@
           xsi:schemaLocation="http://www.example.com/students banks.xsd">
 
 
-    <bank accountID="a5555" depositType="cumulative">
+    <bank accountID="a5555-6667-7543-6778" depositType="cumulative">
         <name>Bank of India</name>
         <country>India</country>
         <depositor>Abraham A.I.</depositor>
@@ -13,7 +13,7 @@
         <timeConstraints>2007-10-26T10:36:28</timeConstraints>
     </bank>
 
-    <bank accountID="c5565" depositType="estimated">
+    <bank accountID="c5565-3657-3685-8976" depositType="estimated">
         <name>Union Bank of India</name>
         <country>India</country>
         <depositor>Imol D.E.</depositor>
@@ -22,12 +22,129 @@
         <timeConstraints>2020-11-22T10:36:28</timeConstraints>
     </bank>
 
-    <bank accountID="h5587" depositType="metal">
+    <bank accountID="h5587-3567-7536-8756" depositType="metal">
         <name>Kotak Bank</name>
         <country>India</country>
         <depositor>Sten B.G.</depositor>
         <accountOnDeposit>21480.0</accountOnDeposit>
         <profitability>11</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="h5587-3424-7536-8756" depositType="poste restante">
+        <name>Deutsche Bank</name>
+        <country>Germany</country>
+        <depositor>Nilson B.G.</depositor>
+        <accountOnDeposit>3243256.0</accountOnDeposit>
+        <profitability>16</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="a6542-3567-5342-8756">
+        <name>Corporation Bank</name>
+        <country>India</country>
+        <depositor>Ishon V.T.</depositor>
+        <accountOnDeposit>343234.0</accountOnDeposit>
+        <profitability>11</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="d5344-3567-7536-7544" depositType="cumulative">
+        <name>ICICI Bank</name>
+        <country>India</country>
+        <depositor>Kilo S.S.</depositor>
+        <accountOnDeposit>75476.0</accountOnDeposit>
+        <profitability>13</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="c5556-5345-8654-8876" depositType="metal">
+        <name>Artsakhbank</name>
+        <country>Armenia</country>
+        <depositor>Shihab D.D.</depositor>
+        <accountOnDeposit>56753.0</accountOnDeposit>
+        <profitability>12</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="a5437-3454-8654-7678" depositType="cumulative">
+        <name>AlpenBank</name>
+        <country>Austria</country>
+        <depositor>Holo S.V.</depositor>
+        <accountOnDeposit>6574.0</accountOnDeposit>
+        <profitability>10</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="a5557-8975-6896-8976" depositType="term">
+        <name>Beobank</name>
+        <country>Belgium</country>
+        <depositor>Uriop B.B.</depositor>
+        <accountOnDeposit>5563.0</accountOnDeposit>
+        <profitability>10</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="h5578-4678-4567-7543" depositType="poste restante">
+        <name>BNP Paribas</name>
+        <country>Bulgaria</country>
+        <depositor>Brino S.G.</depositor>
+        <accountOnDeposit>65433.0</accountOnDeposit>
+        <profitability>13</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="u5587-9867-6747-6654" depositType="term">
+        <name>Corporation Bank</name>
+        <country>India</country>
+        <depositor>Billy G.G.</depositor>
+        <accountOnDeposit>42322.0</accountOnDeposit>
+        <profitability>13</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="i5587-7698-5877-8765" depositType="estimated">
+        <name>Kotak Bank</name>
+        <country>India</country>
+        <depositor>Nickol I.Y.</depositor>
+        <accountOnDeposit>54332.0</accountOnDeposit>
+        <profitability>12</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="q6754-8756-6864-7644">
+        <name>Kotak Bank</name>
+        <country>India</country>
+        <depositor>Tin T.G.</depositor>
+        <accountOnDeposit>43534.0</accountOnDeposit>
+        <profitability>12</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="c7865-8764-7644-9786" depositType="term">
+        <name>Kotak Bank</name>
+        <country>India</country>
+        <depositor>Rolo G.D.</depositor>
+        <accountOnDeposit>53453.0</accountOnDeposit>
+        <profitability>12</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="w7657-9786-0864-7548" depositType="poste restante">
+        <name>Kotak Bank</name>
+        <country>India</country>
+        <depositor>Argen T.R.</depositor>
+        <accountOnDeposit>34555.0</accountOnDeposit>
+        <profitability>12</profitability>
+        <timeConstraints>2020-08-11T10:36:28</timeConstraints>
+    </bank>
+
+    <bank accountID="e5786-9867-9867-9765" depositType="cumulative">
+        <name>Artsakhbank</name>
+        <country>Armenia</country>
+        <depositor>Shadab S.S.</depositor>
+        <accountOnDeposit>65443.0</accountOnDeposit>
+        <profitability>13</profitability>
         <timeConstraints>2020-08-11T10:36:28</timeConstraints>
     </bank>
 

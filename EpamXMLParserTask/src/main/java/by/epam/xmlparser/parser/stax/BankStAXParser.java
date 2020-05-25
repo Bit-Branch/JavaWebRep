@@ -1,5 +1,5 @@
 
-package by.epam.xmlparser.parser;
+package by.epam.xmlparser.parser.stax;
 
 
 import by.epam.xmlparser.entity.Bank;
@@ -25,12 +25,12 @@ import java.util.Locale;
 import java.util.Set;
 
 
-public class BanksStAXParser {
-    static final Logger logger = LogManager.getLogger(BanksStAXParser.class);
+public class BankStAXParser {
+    static final Logger LOGGER = LogManager.getLogger(BankStAXParser.class);
     private HashSet<Bank> banks = new HashSet<>();
     private XMLInputFactory inputFactory;
 
-    public BanksStAXParser() {
+    public BankStAXParser() {
         inputFactory = XMLInputFactory.newInstance();
     }
     
@@ -38,7 +38,7 @@ public class BanksStAXParser {
         return banks;
     }
     
-    public void createBanksSet(String fileName) {
+    public void buildBanksSet(String fileName) {
         try (FileInputStream inputStream = new FileInputStream(new File(fileName))) {
             XMLStreamReader reader = inputFactory.createXMLStreamReader(inputStream);
 
@@ -47,32 +47,32 @@ public class BanksStAXParser {
                 if (reader.next() == XMLStreamConstants.START_ELEMENT) {
                     switch (reader.getLocalName()) {
                         case "bank":
-                            banks.add(createBank(reader, new Bank()));
+                            banks.add(buildBank(reader, new Bank()));
                             break;
                     }
                 }
             }
         } catch (XMLStreamException e) {
-            logger.error("StAX parsing error! " + e.getMessage());
+            LOGGER.error("StAX parsing error! " + e.getMessage());
         } catch (FileNotFoundException e) {
-            logger.error("File " + fileName + " not found! " + e);
+            LOGGER.error("File " + fileName + " not found! " + e);
         } catch (IOException e) {
-            logger.error("Error while closing InputStream" + e);
+            LOGGER.error("Error while closing InputStream" + e);
         }
     }
 
-    protected Bank createBank(XMLStreamReader reader, Bank bank) throws XMLStreamException {
+    protected Bank buildBank(XMLStreamReader reader, Bank bank) throws XMLStreamException {
       
         bank.setAccountID(reader.getAttributeValue(null, BankEnum.ACCOUNT_ID.getValue()));
         if (reader.getAttributeCount() == 2) {
-            bank.setDepositType(DepositType.valueOf(
+            bank.setDepositType(DepositType.fromString(
                     reader.getAttributeValue(null, BankEnum.DEPOSIT_TYPE.getValue())));
         }
         while (reader.hasNext()) {
             switch (reader.next()) {
                 case XMLStreamConstants.START_ELEMENT:
                     String name = reader.getLocalName();
-                    switch (BankEnum.valueOf(name)) {
+                    switch (BankEnum.fromString(name)) {
                         case NAME:
                             bank.setName(getXMLText(reader));
                             break;
@@ -86,7 +86,7 @@ public class BanksStAXParser {
                             break;
 
                         case ACCOUNT_ON_DEPOSIT:
-                            bank.setAccountOnDeposit(BigDecimal.valueOf(Long.parseLong(getXMLText(reader))));
+                            bank.setAccountOnDeposit(BigDecimal.valueOf(Double.parseDouble(getXMLText(reader))));
                             break;
 
                         case PROFITABILITY:
@@ -110,7 +110,7 @@ public class BanksStAXParser {
                     break;
                 case XMLStreamConstants.END_ELEMENT:
                     name = reader.getLocalName();
-                    if (BankEnum.valueOf(reader.getLocalName()) == BankEnum.BANK) {
+                    if (BankEnum.fromString(reader.getLocalName()) == BankEnum.BANK) {
                         return bank;
                     }
             }
