@@ -1,18 +1,22 @@
-package model;
+package by.epam.committiee.entity;
 
-import java.io.Serializable;
+import java.io.File;
 
-public class User implements Serializable {
-    private int id;
+public class User implements Entity {
+    private long id;
     private String surname;
     private String name;
     private String patronymic;
     private String passportNumber;
     private int certificateGrade;
     private boolean hasMedal;
-    private int specialtyId;
+    private long specialtyId;
+    private File image;
 
-    public User(int id, String surname, String name, String patronymic, String passportNumber, int certificateGrade, boolean hasMedal, int specialtyId) {
+    public User() {
+    }
+
+    public User(long id, String surname, String name, String patronymic, String passportNumber, int certificateGrade, boolean hasMedal, long specialtyId, File image) {
         this.id = id;
         this.surname = surname;
         this.name = name;
@@ -21,13 +25,22 @@ public class User implements Serializable {
         this.certificateGrade = certificateGrade;
         this.hasMedal = hasMedal;
         this.specialtyId = specialtyId;
+        this.image = image;
     }
 
-    public int getId() {
+    public File getImage() {
+        return image;
+    }
+
+    public void setImage(File image) {
+        this.image = image;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -79,11 +92,11 @@ public class User implements Serializable {
         this.hasMedal = hasMedal;
     }
 
-    public int getSpecialtyId() {
+    public long getSpecialtyId() {
         return specialtyId;
     }
 
-    public void setSpecialtyId(int specialtyId) {
+    public void setSpecialtyId(long specialtyId) {
         this.specialtyId = specialtyId;
     }
 

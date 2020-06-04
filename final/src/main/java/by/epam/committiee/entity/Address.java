@@ -1,16 +1,19 @@
-package model;
+package by.epam.committiee.entity;
 
 
-public class Address {
-    private Integer id;
+public class Address implements Entity{
+    private long id;
     private String locality;
     private String street;
     private String building;
     private String flat;
     private String zipCode;
-    private Integer enrolleeId;
+    private long enrolleeId;
 
-    public Address(Integer id, String locality, String street, String building, String flat, String zipCode, Integer enrolleeId) {
+    public Address() {
+    }
+
+    public Address(long id, String locality, String street, String building, String flat, String zipCode, long enrolleeId) {
         this.id = id;
         this.locality = locality;
         this.street = street;
@@ -20,11 +23,11 @@ public class Address {
         this.enrolleeId = enrolleeId;
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -68,11 +71,11 @@ public class Address {
         this.zipCode = zipCode;
     }
 
-    public Integer getEnrolleeId() {
+    public long getEnrolleeId() {
         return enrolleeId;
     }
 
-    public void setEnrolleeId(Integer enrolleeId) {
+    public void setEnrolleeId(long enrolleeId) {
         this.enrolleeId = enrolleeId;
     }
 }

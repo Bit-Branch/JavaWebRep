@@ -28,18 +28,13 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -55,7 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -63,6 +58,7 @@
       <recent name="database" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\resources" />
       <recent name="C:\Users\vipch\IdeaProjects\final\src\main\java" />
     </key>
   </component>
@@ -93,7 +89,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590646095279</updated>
-      <workItem from="1590646102504" duration="3286000" />
+      <workItem from="1590646102504" duration="3992000" />
+      <workItem from="1591241867183" duration="7238000" />
     </task>
     <servers />
   </component>
@@ -105,10 +102,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1590646381344" />
-    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1590646817250">
+    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1591248406577">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1590646817250" />
+    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1591248406577" />
+    <state x="505" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591249310727">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="505" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1591249310727" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590649225140">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -121,13 +122,17 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="263" y="126" key="IDE.errors.dialog/0.0.1366.768@0.0.1366.768" timestamp="1590648267070" />
+    <state x="582" y="273" width="326" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1591248354890">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="582" y="273" width="326" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.768@0.0.1366.768" timestamp="1591248354890" />
     <state x="479" y="208" width="408" height="348" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1590648520501">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="479" y="208" width="408" height="348" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.768@0.0.1366.768" timestamp="1590648520501" />
-    <state x="104" y="0" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1590646887169">
+    <state x="405" y="33" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1591248372884">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="104" y="0" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1590646887169" />
+    <state x="405" y="33" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1591248372884" />
   </component>
 </project>

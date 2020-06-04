@@ -1,21 +1,24 @@
-package model;
+package by.epam.committiee.entity;
 
-public class Specialty {
-    private int id;
+public class Specialty implements Entity{
+    private long id;
     private int plan;
-    private int facultyId;
+    private long facultyId;
 
-    public Specialty(int id, int plan, int facultyId) {
+    public Specialty() {
+    }
+
+    public Specialty(long id, int plan, long facultyId) {
         this.id = id;
         this.plan = plan;
         this.facultyId = facultyId;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -27,11 +30,11 @@ public class Specialty {
         this.plan = plan;
     }
 
-    public int getFacultyId() {
+    public long getFacultyId() {
         return facultyId;
     }
 
-    public void setFacultyId(int facultyId) {
+    public void setFacultyId(long facultyId) {
         this.facultyId = facultyId;
     }
 }

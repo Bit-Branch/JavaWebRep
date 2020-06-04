@@ -1,23 +1,26 @@
-package model;
+package by.epam.committiee.entity;
 
-public class Faculty {
-    private int id;
+public class Faculty implements Entity{
+    private long id;
     private int examOne;
     private int examTwo;
     private int examThree;
 
-    public Faculty(int id, int examOne, int examTwo, int examThree) {
+    public Faculty() {
+    }
+
+    public Faculty(long id, int examOne, int examTwo, int examThree) {
         this.id = id;
         this.examOne = examOne;
         this.examTwo = examTwo;
         this.examThree = examThree;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

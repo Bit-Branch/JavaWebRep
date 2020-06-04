@@ -1,6 +1,8 @@
-package model;
+package by.epam.committiee.entity;
 
-public enum Role {
+import java.io.Serializable;
+
+public enum Role implements Serializable {
     ADMIN,USER;
 
     public static Role fromString(String string) {

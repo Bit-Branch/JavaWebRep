@@ -1,9 +1,8 @@
-package model;
+package by.epam.committiee.entity;
 
-import java.io.Serializable;
 
-public class Account implements Serializable {
-    private int id;
+public class Account implements Entity {
+    private long id;
     private String login;
     private String password;
     private Role role;
@@ -11,7 +10,7 @@ public class Account implements Serializable {
     public Account() {
     }
 
-    public Account(int id, String login, String password, Role role) {
+    public Account(long id, String login, String password, Role role) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -27,11 +26,11 @@ public class Account implements Serializable {
         this.role = role;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -1840,16 +1840,21 @@
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="430" parent="304" name="enrollee_specialty_id_fk">
+    <column id="430" parent="304" name="image">
+      <Position>9</Position>
+      <DataType>blob|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="431" parent="304" name="enrollee_specialty_id_fk">
       <ColNames>specialty_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="431" parent="304" name="PRIMARY">
+    <key id="432" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="432" parent="304" name="enrollee_specialty_id_fk">
+    <foreign-key id="433" parent="304" name="enrollee_specialty_id_fk">
       <ColNames>specialty_id</ColNames>
       <RefTableName>specialty</RefTableName>
       <RefColNames>id</RefColNames>
