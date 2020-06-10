@@ -1,7 +1,9 @@
 package by.epam.committiee.entity;
 
 
-public class Account implements Entity {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private long id;
     private String login;
     private String password;

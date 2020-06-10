@@ -14,5 +14,6 @@ public interface Dao<T> {
 
     void delete(long id) throws DaoException;
 
-    T get(long id) throws DaoException;
+    T find(long id) throws DaoException;
+
 }

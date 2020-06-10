@@ -16,23 +16,32 @@ public class AccountDao implements Dao<Account> {
     private static final String DELETE_ACCOUNT = "delete from account where id = ? ";
     private static final String UPDATE_ACCOUNT = "UPDATE account SET login = ?,password = ?,role = ? WHERE id = ?";
     private static final String GET_ACCOUNT = "select * from account WHERE id = ?";
+    private static final String GET_ACCOUNT_BY = "select * from account WHERE login = ? and password = ?";
 
     private static final String ID_COL = "id";
     private static final String LOGIN_COL = "login";
     private static final String PASSWORD_COL = "password";
     private static final String ROLE_COL = "role";
 
+    private static final AccountDao instance = new AccountDao();
+
+    private AccountDao(){}
+
+    public static AccountDao getInstance() {
+        return instance;
+    }
+
     @Override
     public List<Account> getAll() throws DaoException {
         List<Account> accounts = new ArrayList<>();
         try (Connection conn = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = conn.prepareStatement(SELECT_ALL_ACCOUNTS)) {
-            ResultSet rs = statement.executeQuery();
-            while (rs.next()) {
-                accounts.add(new Account(rs.getInt(ID_COL),rs.getString(LOGIN_COL),
-                      rs.getString(PASSWORD_COL), Role.fromString(rs.getString(ROLE_COL))));
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                accounts.add(new Account(resultSet.getInt(ID_COL),resultSet.getString(LOGIN_COL),
+                      resultSet.getString(PASSWORD_COL), Role.fromString(resultSet.getString(ROLE_COL))));
             }
-            rs.close();
+            resultSet.close();
         } catch (SQLException e) {
             throw new DaoException(e.getMessage());
         }
@@ -42,12 +51,12 @@ public class AccountDao implements Dao<Account> {
     @Override
     public void save(Account account) throws DaoException {
         try (Connection conn = ConnectionPool.getInstance().getConnection();
-    PreparedStatement ps = conn.prepareStatement(INSERT_ACCOUNT)) {
-        ps.setLong(1, account.getId());
-        ps.setString(2, account.getLogin());
-        ps.setString(3, account.getPassword());
-        ps.setString(4, account.getRole().toString());
-        ps.executeUpdate();
+    PreparedStatement preparedStatement = conn.prepareStatement(INSERT_ACCOUNT)) {
+        preparedStatement.setLong(1, account.getId());
+        preparedStatement.setString(2, account.getLogin());
+        preparedStatement.setString(3, account.getPassword());
+        preparedStatement.setString(4, account.getRole().toString());
+        preparedStatement.executeUpdate();
     } catch (SQLException e) {
         throw new DaoException(e);
     }
@@ -56,9 +65,9 @@ public class AccountDao implements Dao<Account> {
     @Override
     public void delete(long id) throws DaoException {
         try (Connection conn = ConnectionPool.getInstance().getConnection();
-             PreparedStatement ps = conn.prepareStatement(DELETE_ACCOUNT)) {
-            ps.setLong(1, id);
-            ps.executeUpdate();
+             PreparedStatement preparedStatement = conn.prepareStatement(DELETE_ACCOUNT)) {
+            preparedStatement.setLong(1, id);
+            preparedStatement.executeUpdate();
         }catch (SQLException e) {
             throw new DaoException(e);
         }
@@ -67,24 +76,42 @@ public class AccountDao implements Dao<Account> {
     @Override
     public void update(Account account) throws DaoException {
         try (Connection conn = ConnectionPool.getInstance().getConnection();
-             PreparedStatement ps = conn.prepareStatement(UPDATE_ACCOUNT)) {
-            ps.setString(1, account.getLogin());
-            ps.setString(2, account.getPassword());
-            ps.setString(3, account.getRole().toString());
-            ps.setLong(4, account.getId());
-            ps.executeUpdate();
+             PreparedStatement preparedStatement = conn.prepareStatement(UPDATE_ACCOUNT)) {
+            preparedStatement.setString(1, account.getLogin());
+            preparedStatement.setString(2, account.getPassword());
+            preparedStatement.setString(3, account.getRole().toString());
+            preparedStatement.setLong(4, account.getId());
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DaoException(e);
         }
     }
 
     @Override
-    public Account get(long id) throws DaoException {
+    public Account find(long id) throws DaoException {
         Account account = null;
         try (Connection conn = ConnectionPool.getInstance().getConnection();
-             PreparedStatement ps = conn.prepareStatement(GET_ACCOUNT)){
-            ps.setLong(1, id);
-            ResultSet rs = ps.executeQuery();
+             PreparedStatement preparedStatement = conn.prepareStatement(GET_ACCOUNT)){
+            preparedStatement.setLong(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                account = new Account(rs.getInt(ID_COL),rs.getString(LOGIN_COL),
+                        rs.getString(PASSWORD_COL), Role.fromString(rs.getString(ROLE_COL)));
+            }
+            rs.close();
+        }catch (SQLException e) {
+            throw new DaoException(e);
+        }
+        return account;
+    }
+
+    public Account findBy(String login,String password) throws DaoException{
+        Account account = null;
+        try (Connection conn = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(GET_ACCOUNT_BY)){
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, password);
+            ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 account = new Account(rs.getInt(ID_COL),rs.getString(LOGIN_COL),
                         rs.getString(PASSWORD_COL), Role.fromString(rs.getString(ROLE_COL)));

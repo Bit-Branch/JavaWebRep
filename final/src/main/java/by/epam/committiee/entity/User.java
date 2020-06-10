@@ -1,8 +1,9 @@
 package by.epam.committiee.entity;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class User implements Entity {
+public class User implements Serializable {
     private long id;
     private String surname;
     private String name;

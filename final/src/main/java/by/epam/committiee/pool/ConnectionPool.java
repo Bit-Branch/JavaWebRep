@@ -21,7 +21,7 @@ public class ConnectionPool implements AutoCloseable {
     private static final String DB_URL_KEY = "url";
     private static final String USER_KEY = "user";
     private static final String PASSWORD_KEY = "password";
-    private static final String DB_INFO_PATH = "resources/database/database.properties";
+    private static final String DB_INFO_PATH = "webres/database/database.properties";
     private static final String DRIVER_KEY = "driver";
     private final BlockingQueue<Connection> pool;
     private static boolean isClosed;

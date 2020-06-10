@@ -1,6 +1,8 @@
 package by.epam.committiee.entity;
 
-public class Specialty implements Entity{
+import java.io.Serializable;
+
+public class Specialty implements Serializable {
     private long id;
     private int plan;
     private long facultyId;

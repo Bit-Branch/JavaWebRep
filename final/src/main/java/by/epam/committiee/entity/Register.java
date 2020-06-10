@@ -1,6 +1,8 @@
 package by.epam.committiee.entity;
 
-public class Register implements Entity{
+import java.io.Serializable;
+
+public class Register implements Serializable {
     private long id;
     private boolean isCredited;
 

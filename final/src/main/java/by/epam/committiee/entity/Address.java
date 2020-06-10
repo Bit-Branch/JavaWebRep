@@ -1,7 +1,9 @@
 package by.epam.committiee.entity;
 
 
-public class Address implements Entity{
+import java.io.Serializable;
+
+public class Address implements Serializable {
     private long id;
     private String locality;
     private String street;

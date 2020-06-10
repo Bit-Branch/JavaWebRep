@@ -1,6 +1,8 @@
 package by.epam.committiee.entity;
 
-public class Faculty implements Entity{
+import java.io.Serializable;
+
+public class Faculty implements Serializable {
     private long id;
     private int examOne;
     private int examTwo;
