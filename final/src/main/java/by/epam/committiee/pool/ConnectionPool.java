@@ -50,11 +50,11 @@ public class ConnectionPool implements AutoCloseable {
             }
         } catch (SQLException | InstantiationException |
                 IllegalAccessException | ClassNotFoundException e) {
-            logger.fatal("Could not connect to DataBase: " + e);
-            throw new RuntimeException("Could not connect to DataBase: " + e);
+            logger.fatal("Could not connect to DataBase: ",e);
+            throw new RuntimeException("Could not connect to DataBase: ",e);
         } catch (IOException e) {
             logger.fatal("Error loading properties file: " + e);
-            throw new RuntimeException("Error loading properties file: " + e);
+            throw new RuntimeException("Error loading properties file: ",e);
         }
     }
 
@@ -72,35 +72,27 @@ public class ConnectionPool implements AutoCloseable {
     }
 
     public Connection getConnection() {
-        if (isClosed) {
-            logger.fatal("Pool was already closed");
-            throw new PoolIsClosedException();
-        }
-
         try {
             return pool.take();
         } catch (InterruptedException e) {
-            logger.fatal("Did not retrieve connection: " + e.getMessage());
-            throw new RuntimeException();
+            Thread.currentThread().interrupt();
         }
-    }
-
-
-    void returnConnection(Connection conn) {
-        logger.debug("Real by.epam.committiee.pool size before return: " + pool.size());
-        pool.offer(conn);
-        logger.debug("Real by.epam.committiee.pool size after return: " + pool.size());
     }
 
     @Override
     public void close() {
+        try {
         while (!pool.isEmpty()) {
-            try {
                 pool.remove().close();
-            } catch (SQLException e) {
-                logger.error("Couldn't close connection: " + e);
             }
+        registerDrivers();
+        isClosed = true;
+        } catch (SQLException e) {
+                logger.error("Couldn't close connection: ",e);
         }
+    }
+
+    private void registerDrivers(){
         try {
             Enumeration<Driver> drivers = DriverManager.getDrivers();
             while (drivers.hasMoreElements()) {
@@ -108,11 +100,8 @@ public class ConnectionPool implements AutoCloseable {
                 DriverManager.deregisterDriver(driver);
             }
         } catch (SQLException e) {
-            logger.error("DriverManager wasn't found." + e);
+            logger.error("DriverManager wasn't found.",e);
         }
-        isClosed = true;
     }
-
-
 
 }

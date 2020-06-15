@@ -80,4 +80,52 @@ public class Address implements Serializable {
     public void setEnrolleeId(long enrolleeId) {
         this.enrolleeId = enrolleeId;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Address address = (Address) o;
+
+        return zipCode != null ? zipCode.equals(address.zipCode) : address.zipCode == null &&
+                id == address.id &&
+                enrolleeId == address.enrolleeId &&
+                locality != null ? locality.equals(address.locality) : address.locality == null &&
+                street != null ? street.equals(address.street) : address.street == null &&
+                building != null ? building.equals(address.building) : address.building == null &&
+                flat != null ? flat.equals(address.flat) : address.flat == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (locality != null ? locality.hashCode() : 0);
+        result = 31 * result + (street != null ? street.hashCode() : 0);
+        result = 31 * result + (building != null ? building.hashCode() : 0);
+        result = 31 * result + (flat != null ? flat.hashCode() : 0);
+        result = 31 * result + (zipCode != null ? zipCode.hashCode() : 0);
+        result = 31 * result + (int) (enrolleeId ^ (enrolleeId >>> 32));
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder(getClass().getName());
+        stringBuilder.append("@ id:");
+        stringBuilder.append(id);
+        stringBuilder.append(", locality: ");
+        stringBuilder.append(locality);
+        stringBuilder.append(", street: ");
+        stringBuilder.append(street);
+        stringBuilder.append(", building: ");
+        stringBuilder.append(building);
+        stringBuilder.append(", flat: ");
+        stringBuilder.append(flat);
+        stringBuilder.append(", zipCode: ");
+        stringBuilder.append(zipCode);
+        stringBuilder.append(", enrolleeId: ");
+        stringBuilder.append(enrolleeId);
+        return stringBuilder.toString();
+    }
 }

@@ -1,8 +1,11 @@
-package by.epam.committiee.dao;
+package by.epam.committiee.dao.impl;
 
+import by.epam.committiee.dao.Dao;
 import by.epam.committiee.entity.User;
 import by.epam.committiee.exception.DaoException;
 import by.epam.committiee.pool.ConnectionPool;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.sql.*;
@@ -10,22 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao implements Dao<User> {
-
+    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_ALL_USERS = "select * from user";
     private static final String INSERT_USER = "insert into user(id, surname, name, patronymic,passport_number,certificate_grade,medal,specialty_id,image) values (?,?,?,?,?,?,?,?,?)";
     private static final String DELETE_USER = "delete from user where id = ? ";
     private static final String UPDATE_USER = "UPDATE user SET surname = ?,name = ?,patronymic = ?,passport_number = ?,certificate_grade = ?,medal = ?, specialty_id = ?, image = ? WHERE id = ?";
     private static final String GET_USER = "select * from user WHERE id = ?";
 
-    private static final String ID_COL = "id";
-    private static final String SURNAME_COL = "surname";
-    private static final String NAME_COL = "name";
-    private static final String PATRONYMIC_COL = "patronymic";
-    private static final String PASSPORT_NUM_COL = "passport_number";
-    private static final String CERTIFICATE_COL = "certificate_grade";
-    private static final String MEDAL_COL = "medal";
-    private static final String SPECIALTY_ID_COL = "specialty_id";
-    private static final String IMAGE_COL = "image";
+    private static final String ID_COLUMN = "id";
+    private static final String SURNAME_COLUMN = "surname";
+    private static final String NAME_COLUMN = "name";
+    private static final String PATRONYMIC_COLUMN = "patronymic";
+    private static final String PASSPORT_NUM_COLUMN = "passport_number";
+    private static final String CERTIFICATE_COLUMN = "certificate_grade";
+    private static final String MEDAL_COLUMN = "medal";
+    private static final String SPECIALTY_ID_COLUMN = "specialty_id";
+    private static final String IMAGE_COLUMN = "image";
 
     private static final UserDao instance = new UserDao();
 
@@ -36,34 +39,32 @@ public class UserDao implements Dao<User> {
     }
 
     @Override
-    public List<User> getAll() throws DaoException {
+    public List<User> findAll() throws DaoException {
         List<User> users = new ArrayList<>();
         try (Connection conn = ConnectionPool.getInstance().getConnection();
-             PreparedStatement statement = conn.prepareStatement(SELECT_ALL_USERS)) {
-            ResultSet resultSet = statement.executeQuery();
+             PreparedStatement statement = conn.prepareStatement(SELECT_ALL_USERS);
+             ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 User user = new User();
-                user.setId(resultSet.getLong(ID_COL));
-                user.setSurname(resultSet.getString(SURNAME_COL));
-                user.setName(resultSet.getString(NAME_COL));
-                user.setPatronymic(resultSet.getString(PATRONYMIC_COL));
-                user.setPassportNumber(resultSet.getString(PASSPORT_NUM_COL));
-                user.setCertificateGrade(resultSet.getInt(CERTIFICATE_COL));
-                user.setHasMedal(resultSet.getBoolean(MEDAL_COL));
-                user.setSpecialtyId(resultSet.getLong(SPECIALTY_ID_COL));
+                user.setId(resultSet.getLong(ID_COLUMN));
+                user.setSurname(resultSet.getString(SURNAME_COLUMN));
+                user.setName(resultSet.getString(NAME_COLUMN));
+                user.setPatronymic(resultSet.getString(PATRONYMIC_COLUMN));
+                user.setPassportNumber(resultSet.getString(PASSPORT_NUM_COLUMN));
+                user.setCertificateGrade(resultSet.getInt(CERTIFICATE_COLUMN));
+                user.setHasMedal(resultSet.getBoolean(MEDAL_COLUMN));
+                user.setSpecialtyId(resultSet.getLong(SPECIALTY_ID_COLUMN));
 
-                File f=new File("src/main/resources/database/images " + user.getId() + ".jpg");
-                FileOutputStream fs=new FileOutputStream(f);
-                Blob blob=resultSet.getBlob(IMAGE_COL);
-                byte[] b=blob.getBytes(1, (int)blob.length());
-                fs.write(b);
-
-                user.setImage(f);
+                File file=new File("/resources/database/images ".concat(String.valueOf(user.getId())).concat(".jpg"));
+                FileOutputStream fileOutputStream=new FileOutputStream(file);
+                Blob blob=resultSet.getBlob(IMAGE_COLUMN);
+                byte[] bytes = blob.getBytes(1, (int)blob.length());
+                fileOutputStream.write(bytes);
+                user.setImage(file);
                 users.add(user);
             }
-            resultSet.close();
         } catch (SQLException | IOException e) {
-            throw new DaoException(e.getMessage());
+            throw new DaoException(e);
         }
         return users;
     }
@@ -81,10 +82,10 @@ public class UserDao implements Dao<User> {
         preparedStatement.setBoolean(7, user.isHasMedal());
         preparedStatement.setLong(8, user.getSpecialtyId());
 
-        File f= user.getImage();
-        FileInputStream fs=new FileInputStream(f);
+        File file= user.getImage();
+        FileInputStream fileInputStream=new FileInputStream(file);
 
-        preparedStatement.setBinaryStream(9,fs,(int)f.length());
+        preparedStatement.setBinaryStream(9,fileInputStream,(int)file.length());
         preparedStatement.executeUpdate();
     } catch (SQLException | FileNotFoundException e) {
         throw new DaoException(e);
@@ -115,9 +116,9 @@ public class UserDao implements Dao<User> {
         preparedStatement.setLong(7, user.getSpecialtyId());
         preparedStatement.setLong(8, user.getId());
 
-        File f= user.getImage();
-        FileInputStream fs=new FileInputStream(f);
-        preparedStatement.setBinaryStream(9,fs,(int)f.length());
+        File file= user.getImage();
+        FileInputStream fileInputStream=new FileInputStream(file);
+        preparedStatement.setBinaryStream(9,fileInputStream,(int)file.length());
 
         preparedStatement.executeUpdate();
         }catch (SQLException | FileNotFoundException e) {
@@ -128,34 +129,42 @@ public class UserDao implements Dao<User> {
     @Override
     public User find(long id) throws DaoException {
         User user = null;
+        ResultSet resultSet = null;
         try (Connection conn = ConnectionPool.getInstance().getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(GET_USER)){
             preparedStatement.setLong(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 user = new User();
-                user.setId(resultSet.getLong(ID_COL));
-                user.setSurname(resultSet.getString(SURNAME_COL));
-                user.setName(resultSet.getString(NAME_COL));
-                user.setPatronymic(resultSet.getString(PATRONYMIC_COL));
-                user.setPassportNumber(resultSet.getString(PASSPORT_NUM_COL));
-                user.setCertificateGrade(resultSet.getInt(CERTIFICATE_COL));
-                user.setHasMedal(resultSet.getBoolean(MEDAL_COL));
-                user.setSpecialtyId(resultSet.getLong(SPECIALTY_ID_COL));
+                user.setId(resultSet.getLong(ID_COLUMN));
+                user.setSurname(resultSet.getString(SURNAME_COLUMN));
+                user.setName(resultSet.getString(NAME_COLUMN));
+                user.setPatronymic(resultSet.getString(PATRONYMIC_COLUMN));
+                user.setPassportNumber(resultSet.getString(PASSPORT_NUM_COLUMN));
+                user.setCertificateGrade(resultSet.getInt(CERTIFICATE_COLUMN));
+                user.setHasMedal(resultSet.getBoolean(MEDAL_COLUMN));
+                user.setSpecialtyId(resultSet.getLong(SPECIALTY_ID_COLUMN));
 
-                File f=new File("src/main/resources/database/images " + user.getId() + ".jpg");
-                FileOutputStream fs=new FileOutputStream(f);
-                Blob blob=resultSet.getBlob(IMAGE_COL);
-                byte[] b=blob.getBytes(1, (int)blob.length());
-                fs.write(b);
-
-                user.setImage(f);
+                File file=new File("/resources/database/images ".concat(String.valueOf(user.getId())).concat(".jpg"));
+                FileOutputStream fileOutputStream=new FileOutputStream(file);
+                Blob blob=resultSet.getBlob(IMAGE_COLUMN);
+                byte[] bytes=blob.getBytes(1, (int)blob.length());
+                fileOutputStream.write(bytes);
+                user.setImage(file);
             }
             resultSet.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error("Can't find file: ",e);
         } catch (SQLException | IOException e) {
             throw new DaoException(e);
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    logger.error("Can't close result set: ", e);
+                }
+            }
         }
         return user;
     }

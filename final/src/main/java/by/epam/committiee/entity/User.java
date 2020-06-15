@@ -101,4 +101,57 @@ public class User implements Serializable {
         this.specialtyId = specialtyId;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return image != null ? image.equals(user.image) : user.image == null &&
+                id == user.id && certificateGrade == user.certificateGrade &&
+                hasMedal == user.hasMedal && specialtyId == user.specialtyId &&
+                surname != null ? surname.equals(user.surname) : user.surname == null &&
+                name != null ? name.equals(user.name) : user.name == null &&
+                patronymic != null ? patronymic.equals(user.patronymic) : user.patronymic == null &&
+                passportNumber != null ? passportNumber.equals(user.passportNumber) : user.passportNumber == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (patronymic != null ? patronymic.hashCode() : 0);
+        result = 31 * result + (passportNumber != null ? passportNumber.hashCode() : 0);
+        result = 31 * result + certificateGrade;
+        result = 31 * result + (hasMedal ? 1 : 0);
+        result = 31 * result + (int) (specialtyId ^ (specialtyId >>> 32));
+        result = 31 * result + (image != null ? image.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder(getClass().getName());
+        stringBuilder.append("@ id:");
+        stringBuilder.append(id);
+        stringBuilder.append(", surname: ");
+        stringBuilder.append(surname);
+        stringBuilder.append(", name: ");
+        stringBuilder.append(name);
+        stringBuilder.append(", patronymic: ");
+        stringBuilder.append(patronymic);
+        stringBuilder.append(", passportNumber: ");
+        stringBuilder.append(passportNumber);
+        stringBuilder.append(", certificateGrade: ");
+        stringBuilder.append(certificateGrade);
+        stringBuilder.append(", hasMedal: ");
+        stringBuilder.append(hasMedal);
+        stringBuilder.append(", specialtyId: ");
+        stringBuilder.append(specialtyId);
+        stringBuilder.append(", image: ");
+        stringBuilder.append(image);
+        return stringBuilder.toString();
+    }
 }

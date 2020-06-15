@@ -33,69 +33,16 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chumak_p_g: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="account: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="address: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="faculty: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="register: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="specialty: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="epam_schema: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -117,26 +64,27 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/by/epam/committiee" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15820312" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\webapp" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="by.epam.committiee" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\resources" />
-      <recent name="C:\Users\vipch\IdeaProjects\final\src\main" />
-      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="models" />
       <recent name="database" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\webapp" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\java\by\epam\committiee" />
+      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\resources" />
+      <recent name="C:\Users\vipch\IdeaProjects\final\src\main" />
+      <recent name="C:\Users\vipch\IdeaProjects\final\src\main\java" />
     </key>
   </component>
   <component name="RunManager">
@@ -297,11 +245,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -323,6 +266,7 @@
       <workItem from="1591241867183" duration="7238000" />
       <workItem from="1591596309480" duration="2784000" />
       <workItem from="1591777272376" duration="1869000" />
+      <workItem from="1592190392998" duration="9366000" />
     </task>
     <servers />
   </component>
@@ -338,10 +282,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="274" y="41" width="1092" height="723" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1591597414589" />
-    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1591248406577">
+    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1592199702003">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1591248406577" />
+    <state x="488" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1592199702003" />
     <state x="573" y="307" width="490" height="153" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1591596647808">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -350,10 +294,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="584" y="290" key="#com.intellij.javaee.module.view.web.EditWebRootDialog/0.0.1366.768@0.0.1366.768" timestamp="1591596660423" />
-    <state x="505" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591777804083">
+    <state x="505" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1592197496605">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="505" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1591777804083" />
+    <state x="505" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1592197496605" />
     <state x="479" y="242" width="416" height="332" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591779127845">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

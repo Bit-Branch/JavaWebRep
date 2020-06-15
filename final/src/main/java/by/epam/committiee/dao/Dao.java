@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Dao<T> {
 
-    List<T> getAll() throws DaoException;
+    List<T> findAll() throws DaoException;
 
     void save(T t) throws DaoException;
 

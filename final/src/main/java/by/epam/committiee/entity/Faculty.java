@@ -49,4 +49,39 @@ public class Faculty implements Serializable {
     public void setExamThree(int examThree) {
         this.examThree = examThree;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Faculty faculty = (Faculty) o;
+
+        return examThree == faculty.examThree &&
+                id == faculty.id && examOne == faculty.examOne &&
+                examTwo == faculty.examTwo;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + examOne;
+        result = 31 * result + examTwo;
+        result = 31 * result + examThree;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder(getClass().getName());
+        stringBuilder.append("@ id:");
+        stringBuilder.append(id);
+        stringBuilder.append(", examOne: ");
+        stringBuilder.append(examOne);
+        stringBuilder.append(", examTwo: ");
+        stringBuilder.append(examTwo);
+        stringBuilder.append(", examThree: ");
+        stringBuilder.append(examThree);
+        return stringBuilder.toString();
+    }
 }

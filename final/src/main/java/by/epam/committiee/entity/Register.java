@@ -29,4 +29,31 @@ public class Register implements Serializable {
     public void setCredited(boolean credited) {
         isCredited = credited;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Register register = (Register) o;
+
+        return isCredited == register.isCredited && id == register.id;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (isCredited ? 1 : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder(getClass().getName());
+        stringBuilder.append("@ id:");
+        stringBuilder.append(id);
+        stringBuilder.append(", isCredited: ");
+        stringBuilder.append(isCredited);
+        return stringBuilder.toString();
+    }
 }
