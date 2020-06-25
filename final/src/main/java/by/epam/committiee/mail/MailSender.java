@@ -26,7 +26,7 @@ public class MailSender {
         try {
             props.load(this.getClass().getResourceAsStream(propertiesPath));
         } catch (IOException e){
-            log.error("mail config file problem: " + e);
+            log.error("mail config file problem: ",e);
         }
     }
 
@@ -35,9 +35,9 @@ public class MailSender {
             Message message = initMessage();
             Transport.send(message);
         } catch (AddressException e){
-            log.error("incorrect address " + sendToAddress + " : " + e);
+            log.error("incorrect address " + sendToAddress + " : ", e);
         } catch (MessagingException e){
-            log.error("error generating or sending mail" + e);
+            log.error("error generating or sending mail",e);
         }
     }
 

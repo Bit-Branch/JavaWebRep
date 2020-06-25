@@ -6,9 +6,9 @@ public class SaltGenerator {
     private static final int KEY_LENGTH = 256;
 
     public byte[] generate() {
-        SecureRandom rand = new SecureRandom();
+        SecureRandom random = new SecureRandom();
         byte[] salt = new byte[KEY_LENGTH/8];
-        rand.nextBytes(salt);
+        random.nextBytes(salt);
         return salt;
     }
 }

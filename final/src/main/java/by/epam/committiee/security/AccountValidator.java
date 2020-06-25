@@ -28,9 +28,9 @@ public class AccountValidator {
             }
 
         } catch (DaoException e) {
-            logger.error("Error while finding user: " + e);
+            logger.error("Error while finding user: ",e);
         } catch (HasherException e) {
-            logger.error("Couldn't validate: " + e);
+            logger.error("Couldn't validate: ",e);
         }
         logger.info("account is not valid");
         return false;

@@ -15,15 +15,15 @@ public class Hasher {
 
     public byte[] hash(String password, byte[] salt) throws HasherException {
         try {
-            KeySpec spec = new PBEKeySpec(password.toCharArray(), salt,
+            KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt,
                     ITERATIONS, KEY_LENGTH);
 
-            SecretKeyFactory fact = SecretKeyFactory.getInstance(ALGORITHM);
+            SecretKeyFactory factory = SecretKeyFactory.getInstance(ALGORITHM);
 
-            return fact.generateSecret(spec).getEncoded();
+            return factory.generateSecret(keySpec).getEncoded();
 
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new HasherException("Couldn't produce hash: " + e.getMessage());
+            throw new HasherException("Couldn't produce hash: ", e);
         }
     }
 
