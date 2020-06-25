@@ -1,0 +1,14 @@
+<nav>
+    <ul>
+        <li>
+            <a href="${ pageContext.servletContext.contextPath }/index.jsp">
+                <fmt:message key="nav.home"/>
+            </a>
+        </li>
+        <li>
+            <a href="${ pageContext.servletContext.contextPath }/logout">
+                <fmt:message key="nav.logout"/>
+            </a>
+        </li>
+    </ul>
+</nav>

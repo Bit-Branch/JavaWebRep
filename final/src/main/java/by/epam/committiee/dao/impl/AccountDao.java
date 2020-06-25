@@ -15,17 +15,21 @@ import java.util.List;
 
 public class AccountDao implements Dao<Account> {
     private static Logger logger = LogManager.getLogger(ConnectionPool.class);
-    private static final String SELECT_ALL_ACCOUNTS = "select * account";
-    private static final String INSERT_ACCOUNT = "insert into account(id, login, password, role) values (?,?,?,?)";
+    private static final String SELECT_ALL_ACCOUNTS = "select id,login,password,UNHEX(hash) as hash, UNHEX(salt) as salt,role,email from account";
+    private static final String INSERT_ACCOUNT = "insert into account(id, login, password,hash,salt, role,email) values (?,?,?,HEX(?),HEX(?),?,?)";
     private static final String DELETE_ACCOUNT = "delete from account where id = ? ";
-    private static final String UPDATE_ACCOUNT = "UPDATE account SET login = ?,password = ?,role = ? WHERE id = ?";
-    private static final String GET_ACCOUNT = "select * from account WHERE id = ?";
-    private static final String GET_ACCOUNT_BY = "select * from account WHERE login = ? and password = ?";
+    private static final String UPDATE_ACCOUNT = "UPDATE account SET login = ?,password = ?,hash = HEX(?), salt = HEX(?), role = ?, email = ? WHERE id = ?";
+    private static final String GET_ACCOUNT = "select id,login,password,UNHEX(hash) as hash, UNHEX(salt) as salt,role,email from account WHERE id = ?";
+    private static final String GET_ACCOUNT_BY_LOGIN_PASSWORD = "select id,login,password,UNHEX(hash) as hash, UNHEX(salt) as salt,role,email from account WHERE login = ? and password = ?";
+    private static final String GET_ACCOUNT_BY_LOGIN = "select id,login,password,UNHEX(hash) as hash, UNHEX(salt) as salt,role,email from account WHERE login = ?";
 
     private static final String ID_COLUMN = "id";
     private static final String LOGIN_COLUMN = "login";
     private static final String PASSWORD_COLUMN = "password";
+    private static final String HASH_COLUMN = "hash";
+    private static final String SALT_COLUMN = "salt";
     private static final String ROLE_COLUMN = "role";
+    private static final String EMAIL_COLUMN = "email";
 
     private static final AccountDao instance = new AccountDao();
 
@@ -43,7 +47,9 @@ public class AccountDao implements Dao<Account> {
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 accounts.add(new Account(resultSet.getInt(ID_COLUMN),resultSet.getString(LOGIN_COLUMN),
-                      resultSet.getString(PASSWORD_COLUMN), Role.valueOf(resultSet.getString(ROLE_COLUMN))));
+                      resultSet.getString(PASSWORD_COLUMN), resultSet.getBytes(HASH_COLUMN),
+                        resultSet.getBytes(SALT_COLUMN), Role.valueOf(resultSet.getString(ROLE_COLUMN)),
+                        resultSet.getString(EMAIL_COLUMN)));
             }
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -58,7 +64,10 @@ public class AccountDao implements Dao<Account> {
         preparedStatement.setLong(1, account.getId());
         preparedStatement.setString(2, account.getLogin());
         preparedStatement.setString(3, account.getPassword());
-        preparedStatement.setString(4, account.getRole().toString());
+        preparedStatement.setBytes(4,account.getHash());
+            preparedStatement.setBytes(5,account.getSalt());
+        preparedStatement.setString(6, account.getRole().toString());
+            preparedStatement.setString(7, account.getEmail());
         preparedStatement.executeUpdate();
     } catch (SQLException e) {
         throw new DaoException(e);
@@ -82,8 +91,11 @@ public class AccountDao implements Dao<Account> {
              PreparedStatement preparedStatement = conn.prepareStatement(UPDATE_ACCOUNT)) {
             preparedStatement.setString(1, account.getLogin());
             preparedStatement.setString(2, account.getPassword());
-            preparedStatement.setString(3, account.getRole().toString());
-            preparedStatement.setLong(4, account.getId());
+            preparedStatement.setBytes(3,account.getHash());
+            preparedStatement.setBytes(4,account.getSalt());
+            preparedStatement.setString(5, account.getRole().toString());
+            preparedStatement.setString(6, account.getEmail());
+            preparedStatement.setLong(7, account.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -101,8 +113,38 @@ public class AccountDao implements Dao<Account> {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 account = new Account(resultSet.getInt(ID_COLUMN),resultSet.getString(LOGIN_COLUMN),
-                        resultSet.getString(PASSWORD_COLUMN), Role.valueOf(resultSet.getString(ROLE_COLUMN)));
+                        resultSet.getString(PASSWORD_COLUMN), resultSet.getBytes(HASH_COLUMN),
+                        resultSet.getBytes(SALT_COLUMN), Role.valueOf(resultSet.getString(ROLE_COLUMN)),
+                        resultSet.getString(EMAIL_COLUMN));
             }
+        }catch (SQLException e) {
+            throw new DaoException(e);
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    logger.error("Can't close result set: ", e);
+                }
+            }
+        }
+        return account;
+    }
+
+    public Account findBy(String login) throws DaoException{
+        Account account = new Account();
+        ResultSet resultSet = null;
+        try (Connection conn = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(GET_ACCOUNT_BY_LOGIN)){
+            preparedStatement.setString(1, login);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                account = new Account(resultSet.getInt(ID_COLUMN),resultSet.getString(LOGIN_COLUMN),
+                        resultSet.getString(PASSWORD_COLUMN), resultSet.getBytes(HASH_COLUMN),
+                        resultSet.getBytes(SALT_COLUMN), Role.valueOf(resultSet.getString(ROLE_COLUMN)),
+                        resultSet.getString(EMAIL_COLUMN));
+            }
+            resultSet.close();
         }catch (SQLException e) {
             throw new DaoException(e);
         }finally {
@@ -121,13 +163,15 @@ public class AccountDao implements Dao<Account> {
         Account account = null;
         ResultSet resultSet = null;
         try (Connection conn = ConnectionPool.getInstance().getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement(GET_ACCOUNT_BY)){
+             PreparedStatement preparedStatement = conn.prepareStatement(GET_ACCOUNT_BY_LOGIN_PASSWORD)){
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, password);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 account = new Account(resultSet.getInt(ID_COLUMN),resultSet.getString(LOGIN_COLUMN),
-                        resultSet.getString(PASSWORD_COLUMN), Role.valueOf(resultSet.getString(ROLE_COLUMN)));
+                        resultSet.getString(PASSWORD_COLUMN), resultSet.getBytes(HASH_COLUMN),
+                        resultSet.getBytes(SALT_COLUMN), Role.valueOf(resultSet.getString(ROLE_COLUMN)),
+                        resultSet.getString(EMAIL_COLUMN));
             }
             resultSet.close();
         }catch (SQLException e) {

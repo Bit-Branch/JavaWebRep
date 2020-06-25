@@ -14,11 +14,11 @@ import java.util.List;
 
 public class UserDao implements Dao<User> {
     private static Logger logger = LogManager.getLogger(ConnectionPool.class);
-    private static final String SELECT_ALL_USERS = "select * from user";
+    private static final String SELECT_ALL_USERS = "select id, surname, name, patronymic,passport_number,certificate_grade,medal,specialty_id,image from user";
     private static final String INSERT_USER = "insert into user(id, surname, name, patronymic,passport_number,certificate_grade,medal,specialty_id,image) values (?,?,?,?,?,?,?,?,?)";
     private static final String DELETE_USER = "delete from user where id = ? ";
     private static final String UPDATE_USER = "UPDATE user SET surname = ?,name = ?,patronymic = ?,passport_number = ?,certificate_grade = ?,medal = ?, specialty_id = ?, image = ? WHERE id = ?";
-    private static final String GET_USER = "select * from user WHERE id = ?";
+    private static final String GET_USER = "select id, surname, name, patronymic,passport_number,certificate_grade,medal,specialty_id,image from user WHERE id = ?";
 
     private static final String ID_COLUMN = "id";
     private static final String SURNAME_COLUMN = "surname";

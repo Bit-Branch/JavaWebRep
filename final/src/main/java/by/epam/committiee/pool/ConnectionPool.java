@@ -72,11 +72,13 @@ public class ConnectionPool implements AutoCloseable {
     }
 
     public Connection getConnection() {
+        Connection connection = null;
         try {
-            return pool.take();
+            connection = pool.take();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+        return connection;
     }
 
     @Override

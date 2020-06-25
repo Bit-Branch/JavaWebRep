@@ -6,5 +6,5 @@ import by.epam.committiee.exception.ServiceException;
 
 public interface AccountService extends Service<Account> {
     Account signIn(String login, String password) throws ServiceException;
-    void register(Account account) throws ServiceException;
+    Account signUp(String login, String password, String email) throws ServiceException;
 }
