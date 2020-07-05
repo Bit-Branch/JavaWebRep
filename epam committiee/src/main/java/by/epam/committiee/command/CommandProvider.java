@@ -25,9 +25,12 @@ public final class CommandProvider {
         CommandName commandName;
         ActionCommand command;
         try {
+            if (name == null){
+                throw new IllegalArgumentException();
+            }
             commandName = CommandName.valueOf(name.toUpperCase());
             command = repository.get(commandName);
-        }catch (IllegalArgumentException | NullPointerException e){
+        }catch (IllegalArgumentException e){
             command = repository.get(CommandName.WRONG_REQUEST);
         }
         return command;

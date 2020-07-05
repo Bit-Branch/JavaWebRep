@@ -1,7 +1,7 @@
 package by.epam.committiee.servlet;
 
-import by.epam.committiee.constant.PathConsts;
-import by.epam.committiee.constant.RequestConsts;
+import by.epam.committiee.command.PathPage;
+import by.epam.committiee.constant.RequestParameters;
 import by.epam.committiee.pool.ConnectionPool;
 
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ public class MainServlet extends HttpServlet {
                          HttpServletResponse response) throws ServletException, IOException {
 
         processRequest(request);
-        request.getRequestDispatcher(PathConsts.LOGIN).forward(request, response);
+        request.getRequestDispatcher(PathPage.LOGIN).forward(request, response);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class MainServlet extends HttpServlet {
                           HttpServletResponse response) throws ServletException, IOException {
 
         processRequest(request);
-        response.sendRedirect(request.getHeader(RequestConsts.ORIGIN)
-                + PathConsts.ROOT + PathConsts.HOME);
+        response.sendRedirect(request.getHeader(RequestParameters.ORIGIN)
+                + PathPage.ROOT + PathPage.HOME);
     }
 
     protected void processRequest(HttpServletRequest request)

@@ -23,31 +23,20 @@ public class AccountServiceImpl implements AccountService {
     private AccountValidator validator = new AccountValidator();
 
     @Override
-    public Account signIn(String login, String password) throws ServiceException {
-        if (login == null || login.isEmpty()){
-            throw new ServiceException("invalid login");
-        }
-        if (password == null || password.isEmpty()){
-            throw new ServiceException("invalid password");
-        }
-        try{
-
-            if (validator.validate(login)){
-                return accountDao.findBy(login,password);
-            }else {
-                throw new ServiceException();
-            }
-        }catch (DaoException ex){
-            throw new ServiceException();
+    public boolean signIn(String login, String password) {
+        if (validator.validate(login,password)) {
+            return true;
+        } else {
+            return false;
         }
     }
 
     @Override
-    public Account signUp(String login, String password, String email) throws ServiceException {
+    public boolean signUp(String login, String password, String email) throws ServiceException {
         Account newAccount = new Account();
-        if(validator.validate(login)){
+        if(validator.validate(login,password)){
             logger.debug("Account with this login is currently exists");
-            throw new ServiceException();
+            return false;
         }
         try {
             newAccount.setLogin(login);
@@ -62,9 +51,10 @@ public class AccountServiceImpl implements AccountService {
             mailSender.send();
             AccountDao.getInstance().save(newAccount);
         } catch (DaoException | HasherException e) {
+            logger.error(e);
             throw new ServiceException(e);
         }
-        return newAccount;
+        return true;
     }
 
     @Override

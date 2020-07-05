@@ -134,6 +134,7 @@ public class AccountDao implements Dao<Account> {
         return account;
     }
 
+
     public Account findBy(String login) throws DaoException{
         Account account = new Account();
         ResultSet resultSet = null;
