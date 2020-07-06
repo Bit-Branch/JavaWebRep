@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib version="2.1"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+    <tlib-version>1.0</tlib-version>
+    <short-name>time</short-name>
+    <uri>infotime</uri>
+    <tag>
+        <name>info-time</name>
+        <tag-class>by.epam.tagtask.tag.InfoTimeTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>table-revenue</name>
+        <tag-class>by.epam.tagtask.tag.RevenueTableTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>rows</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>head</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>safe-mail</name>
+        <tag-class>by.epam.tagtask.tag.MailTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <function>
+        <name>notnull</name>
+        <function-class>by.epam.tagtask.tag.NotNullFunction</function-class>
+        <function-signature>String notNull(java.lang.Object)</function-signature>
+    </function>
+
+</taglib>
