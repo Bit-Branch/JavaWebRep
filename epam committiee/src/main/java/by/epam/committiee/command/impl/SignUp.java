@@ -2,7 +2,7 @@ package by.epam.committiee.command.impl;
 
 import by.epam.committiee.command.ActionCommand;
 import by.epam.committiee.command.PathPage;
-import by.epam.committiee.constant.RequestParameters;
+import by.epam.committiee.command.RequestParameters;
 import by.epam.committiee.exception.ServiceException;
 import by.epam.committiee.service.AccountService;
 import by.epam.committiee.service.warehouse.ServiceWarehouse;

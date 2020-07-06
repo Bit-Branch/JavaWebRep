@@ -1,4 +1,4 @@
-package by.epam.committiee.constant;
+package by.epam.committiee.command;
 
 public class RequestParameters {
     public static final String LOGIN ="login";

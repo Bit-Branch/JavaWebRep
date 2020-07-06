@@ -1,7 +1,7 @@
 package by.epam.committiee.servlet;
 
 import by.epam.committiee.command.PathPage;
-import by.epam.committiee.constant.RequestParameters;
+import by.epam.committiee.command.RequestParameters;
 import by.epam.committiee.pool.ConnectionPool;
 
 import javax.servlet.ServletException;

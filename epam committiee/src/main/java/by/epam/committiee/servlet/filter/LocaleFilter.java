@@ -1,7 +1,7 @@
 package by.epam.committiee.servlet.filter;
 
 
-import by.epam.committiee.constant.RequestParameters;
+import by.epam.committiee.command.RequestParameters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
