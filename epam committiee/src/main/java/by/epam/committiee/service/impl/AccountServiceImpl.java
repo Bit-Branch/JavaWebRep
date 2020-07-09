@@ -1,8 +1,10 @@
 package by.epam.committiee.service.impl;
 
 import by.epam.committiee.dao.impl.AccountDao;
+import by.epam.committiee.dao.impl.UserDao;
 import by.epam.committiee.entity.Account;
 import by.epam.committiee.entity.Role;
+import by.epam.committiee.entity.User;
 import by.epam.committiee.exception.DaoException;
 import by.epam.committiee.exception.HasherException;
 import by.epam.committiee.exception.ServiceException;
@@ -32,7 +34,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public boolean signUp(String login, String password, String email) throws ServiceException {
+    public boolean signUp(String surname, String name, String patronymic, String passportNumber, String login, String password, String email) throws ServiceException {
         Account newAccount = new Account();
         if(validator.validate(login,password)){
             logger.debug("Account with this login is currently exists");
@@ -50,11 +52,31 @@ public class AccountServiceImpl implements AccountService {
             MailSender mailSender = new MailSender("dorhead@mail.ru", "Registration", "You successfully registered");
             mailSender.send();
             AccountDao.getInstance().save(newAccount);
+
+            User user = new User();
+            user.setSurname(surname);
+            user.setName(name);
+            user.setPatronymic(patronymic);
+            user.setPassportNumber(passportNumber);
+
+            UserDao.getInstance().save(user);
         } catch (DaoException | HasherException e) {
             logger.error(e);
             throw new ServiceException(e);
         }
         return true;
+    }
+
+    @Override
+    public Role receiveRole(String login, String password) throws ServiceException{
+        Role role;
+        try {
+            role = accountDao.findBy(login, password).getRole();
+        } catch (DaoException e) {
+            logger.error(e);
+            throw new ServiceException(e);
+        }
+        return role;
     }
 
     @Override

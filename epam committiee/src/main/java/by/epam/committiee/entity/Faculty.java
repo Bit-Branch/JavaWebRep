@@ -4,15 +4,17 @@ import java.io.Serializable;
 
 public class Faculty implements Serializable {
     private long id;
-    private int examOne;
-    private int examTwo;
-    private int examThree;
+    private String name;
+    private String examOne;
+    private String examTwo;
+    private String examThree;
 
     public Faculty() {
     }
 
-    public Faculty(long id, int examOne, int examTwo, int examThree) {
+    public Faculty(long id, String name, String examOne, String examTwo, String examThree) {
         this.id = id;
+        this.name = name;
         this.examOne = examOne;
         this.examTwo = examTwo;
         this.examThree = examThree;
@@ -26,27 +28,35 @@ public class Faculty implements Serializable {
         this.id = id;
     }
 
-    public int getExamOne() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getExamOne() {
         return examOne;
     }
 
-    public void setExamOne(int examOne) {
+    public void setExamOne(String examOne) {
         this.examOne = examOne;
     }
 
-    public int getExamTwo() {
+    public String getExamTwo() {
         return examTwo;
     }
 
-    public void setExamTwo(int examTwo) {
+    public void setExamTwo(String examTwo) {
         this.examTwo = examTwo;
     }
 
-    public int getExamThree() {
+    public String getExamThree() {
         return examThree;
     }
 
-    public void setExamThree(int examThree) {
+    public void setExamThree(String examThree) {
         this.examThree = examThree;
     }
 
@@ -57,17 +67,19 @@ public class Faculty implements Serializable {
 
         Faculty faculty = (Faculty) o;
 
-        return examThree == faculty.examThree &&
-                id == faculty.id && examOne == faculty.examOne &&
-                examTwo == faculty.examTwo;
+        return examThree != null ? examThree.equals(faculty.examThree) : faculty.examThree == null &&
+                id == faculty.id && name != null ? name.equals(faculty.name) : faculty.name == null &&
+                examOne != null ? examOne.equals(faculty.examOne) : faculty.examOne == null &&
+                examTwo != null ? examTwo.equals(faculty.examTwo) : faculty.examTwo == null;
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + examOne;
-        result = 31 * result + examTwo;
-        result = 31 * result + examThree;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (examOne != null ? examOne.hashCode() : 0);
+        result = 31 * result + (examTwo != null ? examTwo.hashCode() : 0);
+        result = 31 * result + (examThree != null ? examThree.hashCode() : 0);
         return result;
     }
 
@@ -76,6 +88,8 @@ public class Faculty implements Serializable {
         StringBuilder stringBuilder = new StringBuilder(getClass().getName());
         stringBuilder.append("@ id:");
         stringBuilder.append(id);
+        stringBuilder.append(", name: ");
+        stringBuilder.append(name);
         stringBuilder.append(", examOne: ");
         stringBuilder.append(examOne);
         stringBuilder.append(", examTwo: ");

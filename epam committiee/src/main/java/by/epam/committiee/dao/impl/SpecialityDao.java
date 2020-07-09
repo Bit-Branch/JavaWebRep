@@ -17,14 +17,15 @@ import java.util.List;
 
 public class SpecialityDao implements Dao<Specialty> {
     private static Logger logger = LogManager.getLogger(ConnectionPool.class);
-    private static final String SELECT_ALL_SPECIALTIES = "select id,plan,faculty_id from specialty";
-    private static final String INSERT_SPECIALTY = "insert into specialty(id,plan,faculty_id) values (?,?,?)";
+    private static final String SELECT_ALL_SPECIALTIES = "select id,name,plan,faculty_id from specialty";
+    private static final String INSERT_SPECIALTY = "insert into specialty(id,name,plan,faculty_id) values (?,?,?,?)";
     private static final String DELETE_SPECIALTY = "delete from specialty where id = ? ";
-    private static final String UPDATE_SPECIALTY = "UPDATE specialty SET plan = ?,faculty_id = ? WHERE id = ?";
-    private static final String GET_SPECIALTY = "select id,plan,faculty_id from specialty WHERE id = ?";
+    private static final String UPDATE_SPECIALTY = "UPDATE specialty SET name = ? , plan = ?,faculty_id = ? WHERE id = ?";
+    private static final String GET_SPECIALTY = "select id,name,plan,faculty_id from specialty WHERE id = ?";
 
 
     private static final String ID_COLUMN = "id";
+    private static final String NAME_COLUMN = "name";
     private static final String PLAN_COLUMN = "plan";
     private static final String FACULTY_ID_COLUMN = "faculty_id";
 
@@ -43,7 +44,7 @@ public class SpecialityDao implements Dao<Specialty> {
              PreparedStatement statement = conn.prepareStatement(SELECT_ALL_SPECIALTIES);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                specialties.add(new Specialty(resultSet.getInt(ID_COLUMN),resultSet.getInt(PLAN_COLUMN),
+                specialties.add(new Specialty(resultSet.getInt(ID_COLUMN),resultSet.getString(NAME_COLUMN),resultSet.getInt(PLAN_COLUMN),
                         resultSet.getInt(FACULTY_ID_COLUMN)));
             }
         } catch (SQLException e) {
@@ -57,8 +58,9 @@ public class SpecialityDao implements Dao<Specialty> {
         try (Connection conn = ConnectionPool.getInstance().getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(INSERT_SPECIALTY)) {
             preparedStatement.setLong(1, specialty.getId());
-            preparedStatement.setInt(2, specialty.getPlan());
-            preparedStatement.setLong(3, specialty.getFacultyId());
+            preparedStatement.setString(2, specialty.getName());
+            preparedStatement.setInt(3, specialty.getPlan());
+            preparedStatement.setLong(4, specialty.getFacultyId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -80,9 +82,10 @@ public class SpecialityDao implements Dao<Specialty> {
     public void update(Specialty specialty) throws DaoException {
         try (Connection conn = ConnectionPool.getInstance().getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(UPDATE_SPECIALTY)) {
-            preparedStatement.setInt(1, specialty.getPlan());
-            preparedStatement.setLong(2, specialty.getFacultyId());
-            preparedStatement.setLong(3, specialty.getId());
+            preparedStatement.setString(1, specialty.getName());
+            preparedStatement.setInt(2, specialty.getPlan());
+            preparedStatement.setLong(3, specialty.getFacultyId());
+            preparedStatement.setLong(4, specialty.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -99,7 +102,7 @@ public class SpecialityDao implements Dao<Specialty> {
             preparedStatement.setLong(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                specialty = new Specialty(resultSet.getInt(ID_COLUMN),resultSet.getInt(PLAN_COLUMN),
+                specialty = new Specialty(resultSet.getInt(ID_COLUMN),resultSet.getString(NAME_COLUMN),resultSet.getInt(PLAN_COLUMN),
                         resultSet.getInt(FACULTY_ID_COLUMN));
             }
         }catch (SQLException e) {

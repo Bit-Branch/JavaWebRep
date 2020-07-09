@@ -1,0 +1,3 @@
+<a href="${ pageContext.servletContext.contextPath }/jsp/register.jsp" class="btn">Register</a>
+<a href="${ pageContext.servletContext.contextPath }/jsp/login.jsp" class="btn active">Login</a>
+

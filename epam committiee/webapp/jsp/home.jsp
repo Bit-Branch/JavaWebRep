@@ -10,7 +10,7 @@
                 <!-- Hero Content -->
                 <div class="hero-content text-center">
                     <h2>Let's Study Together</h2>
-                    <a href="#" class="btn clever-btn">Get Started</a>
+                    <a href="${ pageContext.servletContext.contextPath }/jsp/enroll.jsp" class="btn clever-btn">Get Started</a>
                 </div>
             </div>
         </div>

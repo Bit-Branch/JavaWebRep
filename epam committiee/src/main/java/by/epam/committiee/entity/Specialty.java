@@ -4,14 +4,16 @@ import java.io.Serializable;
 
 public class Specialty implements Serializable {
     private long id;
+    private String name;
     private int plan;
     private long facultyId;
 
     public Specialty() {
     }
 
-    public Specialty(long id, int plan, long facultyId) {
+    public Specialty(long id, String name, int plan, long facultyId) {
         this.id = id;
+        this.name = name;
         this.plan = plan;
         this.facultyId = facultyId;
     }
@@ -40,6 +42,14 @@ public class Specialty implements Serializable {
         this.facultyId = facultyId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,12 +58,14 @@ public class Specialty implements Serializable {
         Specialty specialty = (Specialty) o;
 
         return facultyId == specialty.facultyId &&
-                id == specialty.id && plan == specialty.plan;
+                id == specialty.id && plan == specialty.plan &&
+                name != null ? name.equals(specialty.name) : specialty.name == null;
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + plan;
         result = 31 * result + (int) (facultyId ^ (facultyId >>> 32));
         return result;
@@ -64,6 +76,8 @@ public class Specialty implements Serializable {
         StringBuilder stringBuilder = new StringBuilder(getClass().getName());
         stringBuilder.append("@ id:");
         stringBuilder.append(id);
+        stringBuilder.append(", name: ");
+        stringBuilder.append(name);
         stringBuilder.append(", plan: ");
         stringBuilder.append(plan);
         stringBuilder.append(", facultyId: ");

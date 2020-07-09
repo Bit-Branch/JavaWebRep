@@ -17,10 +17,14 @@ public class SignUp implements ActionCommand {
         String login = request.getParameter(RequestParameters.LOGIN);
         String password = request.getParameter(RequestParameters.PASSWORD);
         String email = request.getParameter(RequestParameters.EMAIL);
+        String surname = request.getParameter(RequestParameters.SURNAME);
+        String name = request.getParameter(RequestParameters.NAME);
+        String patronymic = request.getParameter(RequestParameters.PATRONYMIC);
+        String passportNumber = request.getParameter(RequestParameters.PASSPORT_NUMBER);
         ServiceWarehouse serviceWarehouse = ServiceWarehouse.getInstance();
         AccountService accountService = serviceWarehouse.getAccountService();
         try {
-            if(accountService.signUp(login,password,email)) {
+            if(accountService.signUp(surname, name, patronymic, passportNumber, login,password,email)) {
                 response = PathPage.HOME;
             }else{
                 response = PathPage.LOGIN;

@@ -63,9 +63,20 @@
                         <!-- Register / Login -->
                         <div class="register-login-area">
 
-                            <a href="${ pageContext.servletContext.contextPath }/jsp/register.jsp" class="btn">Register</a>
-                            <a href="${ pageContext.servletContext.contextPath }/jsp/login.jsp" class="btn active">Login</a>
-                        </div>
+                            <c:if test="${ empty sessionScope.role }">
+                                <%@include file="empty_sign_area.jspf"%>
+                            </c:if>
+
+                            <c:if test="${ sessionScope.role eq 'USER' }">
+                                <%@ include file="user.jspf" %>
+                            </c:if>
+
+                            <c:if test="${ sessionScope.role eq 'ADMIN' }">
+                                <%@ include file="admin.jspf" %>
+                            </c:if>
+
+                           </div>
+
 
                     </div>
                     <!-- Nav End -->

@@ -1,5 +1,6 @@
 package by.epam.committiee.command;
 
+import by.epam.committiee.command.impl.Logout;
 import by.epam.committiee.command.impl.SignIn;
 import by.epam.committiee.command.impl.SignUp;
 import by.epam.committiee.command.impl.WrongRequest;
@@ -14,6 +15,7 @@ public final class CommandProvider {
     private CommandProvider(){
         repository.put(CommandName.SIGN_IN,new SignIn());
         repository.put(CommandName.SIGN_UP, new SignUp());
+        repository.put(CommandName.LOGOUT, new Logout());
         repository.put(CommandName.WRONG_REQUEST, new WrongRequest());
     }
 
@@ -30,6 +32,9 @@ public final class CommandProvider {
             }
             commandName = CommandName.valueOf(name.toUpperCase());
             command = repository.get(commandName);
+            if (command == null){
+                throw new IllegalArgumentException();
+            }
         }catch (IllegalArgumentException e){
             command = repository.get(CommandName.WRONG_REQUEST);
         }
