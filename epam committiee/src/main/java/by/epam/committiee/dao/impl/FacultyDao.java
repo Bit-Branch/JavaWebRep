@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FacultyDao implements Dao<Faculty> {
-    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
+   // private static Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_ALL_FACULTIES = "select id,name,exam_one,exam_two,exam_three from faculty";
     private static final String INSERT_FACULTY = "insert into faculty(id,name,exam_one,exam_two,exam_three) values (?,?,?,?,?)";
     private static final String DELETE_FACULTY = "delete from faculty where id = ? ";
@@ -115,7 +115,7 @@ public class FacultyDao implements Dao<Faculty> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+                  //  logger.error("Can't close result set: ", e);
                 }
             }
         }

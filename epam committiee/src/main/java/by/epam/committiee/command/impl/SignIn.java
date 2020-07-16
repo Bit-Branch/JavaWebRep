@@ -11,14 +11,15 @@ import by.epam.committiee.service.AccountService;
 import by.epam.committiee.service.warehouse.ServiceWarehouse;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class SignIn implements ActionCommand {
 
 
     @Override
-    public String execute(HttpServletRequest request) {
-        String response;
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+        String page;
         HttpSession session = request.getSession();
         String login = request.getParameter(RequestParameters.LOGIN);
         String password = request.getParameter(RequestParameters.PASSWORD);
@@ -30,14 +31,14 @@ public class SignIn implements ActionCommand {
                 request.setAttribute(RequestParameters.LOGIN, login);
                 request.setAttribute(RequestParameters.ROLE, role);
                 session.setAttribute(RequestParameters.ROLE, role);
-                response = PathPage.HOME;
+                page = PathPage.HOME;
             }catch (ServiceException e){
-                response = PathPage.LOGIN;
+                page = PathPage.LOGIN;
             }
         } else {
-            response = PathPage.LOGIN;
+            page = PathPage.LOGIN;
         }
-        return response;
+        return page;
     }
 
 }

@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class AccountValidator {
-    private static Logger logger = LogManager.getLogger(AccountValidator.class);
+//    private static Logger logger = LogManager.getLogger(AccountValidator.class);
 
     public boolean validate(String login,String password) {
         AccountDao dao = AccountDao.getInstance();
@@ -23,27 +23,27 @@ public class AccountValidator {
                 throw new ValidatorException("invalid password");
             }
             Account account = dao.findBy(login);
-            if (!account.getLogin().isEmpty()) {
-                logger.debug("account found");
+            if (account.getLogin() != null && !account.getLogin().isEmpty()) {
+            //    logger.debug("account found");
                 Hasher hasher = new Hasher();
                 byte[] hash = hasher.hash(password, account.getSalt());
 
                 if (compareHashes(account.getHash(), hash)) {
                     account.setPassword(null);
                     account.setHash(new byte[] {});
-                    logger.info("account is valid");
+               //     logger.info("account is valid");
                     return true;
                 }
             }
 
         } catch (DaoException e) {
-            logger.error("Error while finding user: ",e);
+         //   logger.error("Error while finding user: ",e);
         } catch (HasherException e) {
-            logger.error("Couldn't validate: ",e);
+          //  logger.error("Couldn't validate: ",e);
         } catch (ValidatorException e){
-            logger.error(e);
+         //   logger.error(e);
         }
-        logger.info("account is not valid");
+    //    logger.info("account is not valid");
         return false;
     }
 

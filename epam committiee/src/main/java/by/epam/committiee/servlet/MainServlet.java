@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/main", "/register", "/login"})
+@WebServlet(urlPatterns = {"/main", "/register", "/login","/chooseFaculty","/chooseSpecialty"})
 public class MainServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class MainServlet extends HttpServlet {
         String commandStr = request.getParameter(RequestParameters.COMMAND_PARAMETER);
         CommandProvider commandProvider = CommandProvider.getInstance();
         ActionCommand command = commandProvider.getCommand(commandStr);
-        String page = command.execute(request);
+        String page = command.execute(request,response);
 
         if (!page.equals(CommandName.WRONG_REQUEST.toString())) {
             request.getRequestDispatcher(page).forward(request, response);

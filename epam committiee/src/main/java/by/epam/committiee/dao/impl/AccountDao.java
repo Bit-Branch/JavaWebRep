@@ -9,6 +9,7 @@ import by.epam.committiee.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountDao implements Dao<Account> {
-    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
+    //private static Logger logger = LogManager.getLogger(AccountDao.class);
     private static final String SELECT_ALL_ACCOUNTS = "select id,login,password,UNHEX(hash) as hash, UNHEX(salt) as salt,role,email from account";
     private static final String INSERT_ACCOUNT = "insert into account(id, login, password,hash,salt, role,email) values (?,?,?,HEX(?),HEX(?),?,?)";
     private static final String DELETE_ACCOUNT = "delete from account where id = ? ";
@@ -127,7 +128,7 @@ public class AccountDao implements Dao<Account> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+                   // logger.error("Can't close result set: ", e);
                 }
             }
         }
@@ -156,7 +157,7 @@ public class AccountDao implements Dao<Account> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+                 //   logger.error("Can't close result set: ", e);
                 }
             }
         }
@@ -185,7 +186,7 @@ public class AccountDao implements Dao<Account> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+                 //   logger.error("Can't close result set: ", e);
                 }
             }
         }

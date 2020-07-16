@@ -7,18 +7,20 @@ import by.epam.committiee.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.servlet.ServletContext;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao implements Dao<User> {
-    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
+//    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_ALL_USERS = "select id, surname, name, patronymic,passport_number,specialty_id,image from user";
     private static final String INSERT_USER = "insert into user(id, surname, name, patronymic,passport_number,specialty_id,image) values (?,?,?,?,?,?,?)";
     private static final String DELETE_USER = "delete from user where id = ? ";
     private static final String UPDATE_USER = "UPDATE user SET surname = ?,name = ?,patronymic = ?,passport_number = ?, specialty_id = ?, image = ? WHERE id = ?";
     private static final String GET_USER = "select id, surname, name, patronymic,passport_number,specialty_id,image from user WHERE id = ?";
+    private static final String GET_USER_BY_PASSPORT_NUMBER = "select id, surname, name, patronymic,passport_number,specialty_id,image from user WHERE passport_number = ?";
 
     private static final String ID_COLUMN = "id";
     private static final String SURNAME_COLUMN = "surname";
@@ -77,9 +79,15 @@ public class UserDao implements Dao<User> {
         preparedStatement.setLong(6, user.getSpecialtyId());
 
         File file= user.getImage();
-        FileInputStream fileInputStream=new FileInputStream(file);
+            if (file != null) {
+                FileInputStream fileInputStream = new FileInputStream(file);
 
-        preparedStatement.setBinaryStream(7,fileInputStream,(int)file.length());
+                preparedStatement.setBinaryStream(7, fileInputStream, (int) file.length());
+            } else{
+                file = new File("C:\\Users\\vipch\\IdeaProjects\\epam committiee\\webapp\\img\\bg-img\\t4.png");
+                preparedStatement.setBinaryStream(7,new FileInputStream(file), (int) file.length());
+
+            }
         preparedStatement.executeUpdate();
     } catch (SQLException | FileNotFoundException e) {
         throw new DaoException(e);
@@ -144,7 +152,7 @@ public class UserDao implements Dao<User> {
             }
             resultSet.close();
         } catch (FileNotFoundException e) {
-            logger.error("Can't find file: ",e);
+      //      logger.error("Can't find file: ",e);
         } catch (SQLException | IOException e) {
             throw new DaoException(e);
         } finally {
@@ -152,7 +160,48 @@ public class UserDao implements Dao<User> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+        //            logger.error("Can't close result set: ", e);
+                }
+            }
+        }
+        return user;
+    }
+
+
+    public User find(String passportNumber) throws DaoException {
+        User user = null;
+        ResultSet resultSet = null;
+        try (Connection conn = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(GET_USER_BY_PASSPORT_NUMBER)){
+            preparedStatement.setString(1, passportNumber);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                user = new User();
+                user.setId(resultSet.getLong(ID_COLUMN));
+                user.setSurname(resultSet.getString(SURNAME_COLUMN));
+                user.setName(resultSet.getString(NAME_COLUMN));
+                user.setPatronymic(resultSet.getString(PATRONYMIC_COLUMN));
+                user.setPassportNumber(resultSet.getString(PASSPORT_NUM_COLUMN));
+                user.setSpecialtyId(resultSet.getLong(SPECIALTY_ID_COLUMN));
+
+                File file=new File("/resources/database.properties/images ".concat(String.valueOf(user.getId())).concat(".jpg"));
+                FileOutputStream fileOutputStream=new FileOutputStream(file);
+                Blob blob=resultSet.getBlob(IMAGE_COLUMN);
+                byte[] bytes=blob.getBytes(1, (int)blob.length());
+                fileOutputStream.write(bytes);
+                user.setImage(file);
+            }
+            resultSet.close();
+        } catch (FileNotFoundException e) {
+            //      logger.error("Can't find file: ",e);
+        } catch (SQLException | IOException e) {
+            throw new DaoException(e);
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    //            logger.error("Can't close result set: ", e);
                 }
             }
         }

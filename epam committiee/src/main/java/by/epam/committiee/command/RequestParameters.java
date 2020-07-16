@@ -10,6 +10,8 @@ public class RequestParameters {
     public static final String PATRONYMIC ="patronymic";
     public static final String PASSPORT_NUMBER ="passport_number";
 
+    public static final String FACULTIES ="faculties";
+
     public static final String LOCALE = "locale";
     public static final String LANG = "lang";
     public static final String REFERER = "referer";
@@ -20,6 +22,8 @@ public class RequestParameters {
     public static final String CONFIRM = "confirm";
     public static final String COMMAND_PARAMETER = "command";
     public static final String MESSAGE = "Message";
+    public static final String CHARACTER_ENCODING = "charset";
+    public static final String PAGE_ENCODING = "pageEncoding";
 
     private RequestParameters(){}
 }

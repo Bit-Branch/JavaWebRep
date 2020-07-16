@@ -1,9 +1,6 @@
 package by.epam.committiee.command;
 
-import by.epam.committiee.command.impl.Logout;
-import by.epam.committiee.command.impl.SignIn;
-import by.epam.committiee.command.impl.SignUp;
-import by.epam.committiee.command.impl.WrongRequest;
+import by.epam.committiee.command.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +13,7 @@ public final class CommandProvider {
         repository.put(CommandName.SIGN_IN,new SignIn());
         repository.put(CommandName.SIGN_UP, new SignUp());
         repository.put(CommandName.LOGOUT, new Logout());
+        repository.put(CommandName.SHOW_FACULTIES,new ShowFaculties());
         repository.put(CommandName.WRONG_REQUEST, new WrongRequest());
     }
 

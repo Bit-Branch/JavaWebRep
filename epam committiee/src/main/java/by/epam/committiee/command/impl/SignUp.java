@@ -8,12 +8,13 @@ import by.epam.committiee.service.AccountService;
 import by.epam.committiee.service.warehouse.ServiceWarehouse;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class SignUp implements ActionCommand {
 
     @Override
-    public String execute(HttpServletRequest request){
-        String response;
+    public String execute(HttpServletRequest request, HttpServletResponse response){
+        String page;
         String login = request.getParameter(RequestParameters.LOGIN);
         String password = request.getParameter(RequestParameters.PASSWORD);
         String email = request.getParameter(RequestParameters.EMAIL);
@@ -25,13 +26,13 @@ public class SignUp implements ActionCommand {
         AccountService accountService = serviceWarehouse.getAccountService();
         try {
             if(accountService.signUp(surname, name, patronymic, passportNumber, login,password,email)) {
-                response = PathPage.HOME;
+                page = PathPage.HOME;
             }else{
-                response = PathPage.LOGIN;
+                page = PathPage.LOGIN;
             }
         } catch (ServiceException ex){
-            response = PathPage.LOGIN;
+            page = PathPage.LOGIN;
         }
-        return response;
+        return page;
     }
 }

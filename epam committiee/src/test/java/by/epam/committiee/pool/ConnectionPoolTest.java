@@ -23,7 +23,7 @@ public class ConnectionPoolTest {
     public void setUp() {
         pool = ConnectionPool.getInstance();
         inputStream = getClass().getClassLoader()
-                .getResourceAsStream("resources/database/database.properties");
+                .getResourceAsStream("database.properties");
     }
 
     @AfterMethod
