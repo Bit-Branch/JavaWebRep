@@ -1,0 +1,25 @@
+<div class="login-state d-flex align-items-center">
+    <div class="user-name mr-30">
+        <div class="dropdown">
+            <a class="dropdown-toggle" href="#" role="button" id="userName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Megan Fox</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userName">
+                <a class="dropdown-item" href="${ pageContext.servletContext.contextPath }/profile"><fmt:message key="label.personalCabinet" bundle="${lang}"/></a>
+                <a class="dropdown-item" href="${ pageContext.servletContext.contextPath }/my_marks"><fmt:message key="header.myMarks" bundle="${lang}"/></a>
+                <a class="dropdown-item" href="${ pageContext.servletContext.contextPath }/my_specialties"><fmt:message key="header.mySpecialties" bundle="${lang}"/></a>
+                <a class="dropdown-item" href="${ pageContext.servletContext.contextPath }/logout"><fmt:message key="label.logout" bundle="${lang}"/></a>
+            </div>
+        </div>
+    </div>
+    <div class="userthumb">
+        <img src="data:image/jpeg;base64,${imgBase}" />
+    </div>
+
+    <%--    while (rs.next()) {--%>
+    <%--    byte[] imgData = rs.getBytes("img"); // blob field--%>
+    <%--    request.setAttribute("rvi", "Ravinath");--%>
+    <%--    rs.getString("teatitle");--%>
+
+    <%--    String encode = Base64.getEncoder().encodeToString(imgData);--%>
+    <%--    request.setAttribute("imgBase", encode);--%>
+    <%--    }--%>
+</div>
