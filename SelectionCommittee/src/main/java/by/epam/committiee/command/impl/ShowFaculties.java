@@ -21,7 +21,6 @@ public class ShowFaculties implements ActionCommand {
         String page;
         ServiceWarehouse serviceWarehouse = ServiceWarehouse.getInstance();
         FacultyService facultyService = serviceWarehouse.getFacultyService();
-
             try {
                 List<Faculty> faculties = facultyService.findAll();
                 request.setAttribute(RequestParameters.FACULTIES, faculties);

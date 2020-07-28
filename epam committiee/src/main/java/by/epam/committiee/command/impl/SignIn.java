@@ -30,6 +30,7 @@ public class SignIn implements ActionCommand {
                 Role role = accountService.receiveRole(login, password);
                 request.setAttribute(RequestParameters.LOGIN, login);
                 request.setAttribute(RequestParameters.ROLE, role);
+                session.setAttribute(RequestParameters.LOGIN, login);
                 session.setAttribute(RequestParameters.ROLE, role);
                 page = PathPage.HOME;
             }catch (ServiceException e){

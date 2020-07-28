@@ -1,6 +1,7 @@
 package by.epam.committiee.entity;
 
 
+import java.io.File;
 import java.io.Serializable;
 
 public class Account implements Serializable {
@@ -11,6 +12,7 @@ public class Account implements Serializable {
     private transient byte[] hash;
     private Role role;
     private String email;
+    private File image;
 
     public Account() {
     }
@@ -22,7 +24,7 @@ public class Account implements Serializable {
         this.role = role;
     }
 
-    public Account(long id, String login, String password, byte[] salt, byte[] hash, Role role, String email) {
+    public Account(long id, String login, String password, byte[] hash, byte[] salt, Role role, String email, File image) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -30,6 +32,7 @@ public class Account implements Serializable {
         this.hash = hash;
         this.role = role;
         this.email = email;
+        this.image = image;
     }
 
     public Account(String login, String password, Role role, String email) {
@@ -37,6 +40,14 @@ public class Account implements Serializable {
         this.password = password;
         this.role = role;
         this.email = email;
+    }
+
+    public File getImage() {
+        return image;
+    }
+
+    public void setImage(File image) {
+        this.image = image;
     }
 
     public Role getRole() {
@@ -108,7 +119,8 @@ public class Account implements Serializable {
                 password != null ? password.equals(account.password) : account.password == null &&
                 salt != null ? salt.equals(account.salt) : account.salt == null &&
                 hash != null ? hash.equals(account.hash) : account.hash == null &&
-                email != null ? email.equals(account.email) : account.email == null;
+                email != null ? email.equals(account.email) : account.email == null &&
+                image != null ? image.equals(account.image) : account.image == null;
     }
 
     @Override
@@ -118,6 +130,7 @@ public class Account implements Serializable {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (image != null ? image.hashCode() : 0);
         return result;
     }
 
@@ -134,6 +147,8 @@ public class Account implements Serializable {
         stringBuilder.append(role);
         stringBuilder.append(", email: ");
         stringBuilder.append(email);
+        stringBuilder.append(", image: ");
+        stringBuilder.append(image);
         return stringBuilder.toString();
     }
 }

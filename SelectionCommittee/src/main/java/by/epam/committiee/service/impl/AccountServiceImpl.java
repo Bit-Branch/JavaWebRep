@@ -46,7 +46,7 @@ public class AccountServiceImpl implements AccountService {
             newAccount.setLogin(login);
             newAccount.setPassword(password);
             byte[] salt = new SaltGenerator().generate();
-            byte[] hash = new Hasher().hash(newAccount.getPassword(), salt);
+            byte[] hash = new Hasher().hash(password, salt);
             newAccount.setSalt(salt);
             newAccount.setHash(hash);
 
@@ -87,6 +87,18 @@ public class AccountServiceImpl implements AccountService {
             throw new ServiceException(e);
         }
         return role;
+    }
+
+    @Override
+    public long receiveID(String login, String password) throws ServiceException {
+        long id;
+        try {
+            id = accountDao.findBy(login, password).getId();
+        } catch (DaoException e) {
+            //       logger.error(e);
+            throw new ServiceException(e);
+        }
+        return id;
     }
 
     @Override

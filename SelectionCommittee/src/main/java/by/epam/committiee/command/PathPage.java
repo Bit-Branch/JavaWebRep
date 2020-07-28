@@ -14,6 +14,13 @@ public class PathPage {
     public static final String EDIT_FACULTIES = "/jsp/edit_faculties.jsp";
     public static final String EDIT_SPECIALTIES = "/jsp/edit_specialties.jsp";
     public static final String USERS_LIST = "/jsp/users_list.jsp";
+    public static final String ENROLL = "/jsp/enroll.jsp";
+    public static final String MY_MARKS = "/jsp/my_marks.jsp";
+    public static final String MY_SPECIALTIES = "/jsp/my_specialties.jsp";
+    public static final String PROFILE = "/jsp/profile.jsp";
+    public static final String SPECIALTIES = "/jsp/specialties.jsp";
+    public static final String SPECIALTY = "/jsp/specialty.jsp";
+    public static final String TEACHERS = "/jsp/teachers.jsp";
 
     private PathPage() {
     }

@@ -24,7 +24,7 @@ public class ConnectionPool implements AutoCloseable {
     private static final String PASSWORD_KEY = "password";
     private static final String DB_INFO_PATH = "database.properties";
     private static final String DRIVER_KEY = "driver";
-    private final BlockingQueue<Connection> pool;
+    private final BlockingQueue<ProxyConnection> pool;
     private static boolean isClosed;
 
     private ConnectionPool() {
@@ -35,7 +35,7 @@ public class ConnectionPool implements AutoCloseable {
             Properties properties = new Properties();
             properties.load(inputStream);
 
-            pool = new ArrayBlockingQueue<Connection>(
+            pool = new ArrayBlockingQueue<>(
                     Integer.parseInt(properties.getProperty(POOL_SIZE_KEY)));
 
       //      logger.debug(properties.getProperty(DRIVER_KEY));
@@ -47,7 +47,7 @@ public class ConnectionPool implements AutoCloseable {
                         properties.getProperty(USER_KEY),
                         properties.getProperty(PASSWORD_KEY));
 
-                pool.add(conn);
+                pool.add(new ProxyConnection(conn));
             }
         } catch (SQLException | InstantiationException |
                 IllegalAccessException | ClassNotFoundException e) {
@@ -77,6 +77,7 @@ public class ConnectionPool implements AutoCloseable {
         try {
             connection = pool.take();
         } catch (InterruptedException e) {
+          //  log.error("InterruptedException while taking a connection: ", e);
             Thread.currentThread().interrupt();
         }
         return connection;
@@ -84,15 +85,17 @@ public class ConnectionPool implements AutoCloseable {
 
     @Override
     public void close() {
-        try {
         while (!pool.isEmpty()) {
                 pool.remove().close();
             }
         registerDrivers();
         isClosed = true;
-        } catch (SQLException e) {
-             //   logger.error("Couldn't close connection: ",e);
-        }
+    }
+
+    void returnConnection(ProxyConnection conn) {
+       // logger.debug("Real pool size before return: " + pool.size());
+        pool.offer(conn);
+      //  logger.debug("Real pool size after return: " + pool.size());
     }
 
     private void registerDrivers(){

@@ -16,18 +16,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpecialityDao implements Dao<Specialty> {
-    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
+//    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_ALL_SPECIALTIES = "select id,name,plan,faculty_id from specialty";
     private static final String INSERT_SPECIALTY = "insert into specialty(id,name,plan,faculty_id) values (?,?,?,?)";
     private static final String DELETE_SPECIALTY = "delete from specialty where id = ? ";
     private static final String UPDATE_SPECIALTY = "UPDATE specialty SET name = ? , plan = ?,faculty_id = ? WHERE id = ?";
     private static final String GET_SPECIALTY = "select id,name,plan,faculty_id from specialty WHERE id = ?";
+    private static final String SELECT_USER_SPECIALTIES = "select specialty_id from user_specialty WHERE user_id = ?";
+    private static final String SELECT_FACULTY_SPECIALTIES = "select id,name,plan,faculty_id from specialty WHERE faculty_id = ?";
 
 
     private static final String ID_COLUMN = "id";
     private static final String NAME_COLUMN = "name";
     private static final String PLAN_COLUMN = "plan";
     private static final String FACULTY_ID_COLUMN = "faculty_id";
+    private static final String SPECIALTY_ID_COLUMN = "specialty_id";
+    private static final String USER_ID_COLUMN = "user_id";
 
     private static final SpecialityDao instance = new SpecialityDao();
 
@@ -112,10 +116,65 @@ public class SpecialityDao implements Dao<Specialty> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+               //     logger.error("Can't close result set: ", e);
                 }
             }
         }
         return specialty;
+    }
+
+    public List<Specialty> findAllByUserId(long id) throws DaoException{
+        List<Specialty> specialties = new ArrayList<>();
+        Specialty specialty = null;
+        ResultSet resultSet = null;
+        try (Connection conn = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_USER_SPECIALTIES);
+        ){
+            preparedStatement.setLong(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                specialty = find(resultSet.getInt(SPECIALTY_ID_COLUMN));
+                specialties.add(specialty);
+            }
+        }catch (SQLException e) {
+            throw new DaoException(e);
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+               //     logger.error("Can't close result set: ", e);
+                }
+            }
+        }
+        return specialties;
+    }
+
+    public List<Specialty> findAllByFacultyId(long id) throws DaoException{
+        List<Specialty> specialties = new ArrayList<>();
+        Specialty specialty = null;
+        ResultSet resultSet = null;
+        try (Connection conn = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_FACULTY_SPECIALTIES);
+        ){
+            preparedStatement.setLong(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                specialty = new Specialty(resultSet.getInt(ID_COLUMN),resultSet.getString(NAME_COLUMN),resultSet.getInt(PLAN_COLUMN),
+                        resultSet.getInt(FACULTY_ID_COLUMN));
+                specialties.add(specialty);
+            }
+        }catch (SQLException e) {
+            throw new DaoException(e);
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+              //      logger.error("Can't close result set: ", e);
+                }
+            }
+        }
+        return specialties;
     }
 }

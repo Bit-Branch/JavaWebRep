@@ -10,27 +10,18 @@ public class User implements Serializable {
     private String patronymic;
     private String passportNumber;
     private long specialtyId;
-    private File image;
+
 
     public User() {
     }
 
-    public User(long id, String surname, String name, String patronymic, String passportNumber, long specialtyId, File image) {
+    public User(long id, String surname, String name, String patronymic, String passportNumber, long specialtyId) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.passportNumber = passportNumber;
         this.specialtyId = specialtyId;
-        this.image = image;
-    }
-
-    public File getImage() {
-        return image;
-    }
-
-    public void setImage(File image) {
-        this.image = image;
     }
 
     public long getId() {
@@ -89,7 +80,7 @@ public class User implements Serializable {
 
         User user = (User) o;
 
-        return image != null ? image.equals(user.image) : user.image == null &&
+        return
                 surname != null ? surname.equals(user.surname) : user.surname == null &&
                 name != null ? name.equals(user.name) : user.name == null &&
                 patronymic != null ? patronymic.equals(user.patronymic) : user.patronymic == null &&
@@ -104,7 +95,6 @@ public class User implements Serializable {
         result = 31 * result + (patronymic != null ? patronymic.hashCode() : 0);
         result = 31 * result + (passportNumber != null ? passportNumber.hashCode() : 0);
         result = 31 * result + (int) (specialtyId ^ (specialtyId >>> 32));
-        result = 31 * result + (image != null ? image.hashCode() : 0);
         return result;
     }
 
@@ -123,8 +113,6 @@ public class User implements Serializable {
         stringBuilder.append(passportNumber);
         stringBuilder.append(", specialtyId: ");
         stringBuilder.append(specialtyId);
-        stringBuilder.append(", image: ");
-        stringBuilder.append(image);
         return stringBuilder.toString();
     }
 }

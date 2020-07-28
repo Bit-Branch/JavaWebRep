@@ -6,17 +6,19 @@ public class Result {
     private int firstExamMark;
     private int secondExamMark;
     private int thirdExamMark;
+    private int fourthExamMark;
     private boolean isCredited;
 
     public Result() {
     }
 
-    public Result(long id, int certificateMark, int firstExamMark, int secondExamMark, int thirdExamMark, boolean isCredited) {
+    public Result(long id, int certificateMark, int firstExamMark, int secondExamMark, int thirdExamMark, int fourthExamMark, boolean isCredited) {
         this.id = id;
         this.certificateMark = certificateMark;
         this.firstExamMark = firstExamMark;
         this.secondExamMark = secondExamMark;
         this.thirdExamMark = thirdExamMark;
+        this.fourthExamMark = fourthExamMark;
         this.isCredited = isCredited;
     }
 
@@ -60,6 +62,14 @@ public class Result {
         this.thirdExamMark = thirdExamMark;
     }
 
+    public int getFourthExamMark() {
+        return fourthExamMark;
+    }
+
+    public void setFourthExamMark(int fourthExamMark) {
+        this.fourthExamMark = fourthExamMark;
+    }
+
     public boolean isCredited() {
         return isCredited;
     }
@@ -77,7 +87,8 @@ public class Result {
 
         return isCredited == result.isCredited && id == result.id &&
                 certificateMark == result.certificateMark && firstExamMark == result.firstExamMark &&
-                secondExamMark == result.secondExamMark && thirdExamMark == result.thirdExamMark;
+                secondExamMark == result.secondExamMark && thirdExamMark == result.thirdExamMark &&
+                fourthExamMark == result.fourthExamMark;
     }
 
     @Override
@@ -87,6 +98,7 @@ public class Result {
         result = 31 * result + firstExamMark;
         result = 31 * result + secondExamMark;
         result = 31 * result + thirdExamMark;
+        result = 31 * result + fourthExamMark;
         result = 31 * result + (isCredited ? 1 : 0);
         return result;
     }
@@ -104,6 +116,8 @@ public class Result {
         stringBuilder.append(secondExamMark);
         stringBuilder.append(", thirdExamMark: ");
         stringBuilder.append(thirdExamMark);
+        stringBuilder.append(", fourthExamMark: ");
+        stringBuilder.append(fourthExamMark);
         stringBuilder.append(", isCredited: ");
         stringBuilder.append(isCredited);
         return stringBuilder.toString();

@@ -1,4 +1,13 @@
 package by.epam.committiee.command.impl;
 
-public class Enroll {
+import by.epam.committiee.command.ActionCommand;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Enroll implements ActionCommand {
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+        return null;
+    }
 }

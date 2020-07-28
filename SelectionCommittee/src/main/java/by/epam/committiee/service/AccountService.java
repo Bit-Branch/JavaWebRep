@@ -16,5 +16,6 @@ public interface AccountService extends Service<Account> {
                    String email) throws ServiceException;
 
     Role receiveRole(String login, String password) throws ServiceException;
+    long receiveID(String login, String password) throws ServiceException;
 
 }

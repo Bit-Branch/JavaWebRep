@@ -17,19 +17,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResultDao implements Dao<Result> {
-    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
-    private static final String SELECT_ALL_RESULTS = "select id,certificate_mark,exam_one_mark,exam_two_mark,exam_three_mark,credited from result";
-    private static final String INSERT_RESULT = "insert into result(id,certificate_mark,exam_one_mark,exam_two_mark,exam_three_mark,credited) values (?,?,?,?,?,?)";
+//    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
+    private static final String SELECT_ALL_RESULTS = "select id,certificate_mark,exam_one_mark,exam_two_mark,exam_three_mark,exam_four_mark,credited from result";
+    private static final String INSERT_RESULT = "insert into result(id,certificate_mark,exam_one_mark,exam_two_mark,exam_three_mark,exam_four_mark,credited) values (?,?,?,?,?,?,?)";
     private static final String DELETE_RESULT = "delete from result where id = ? ";
-    private static final String UPDATE_RESULT = "UPDATE result SET certificate_mark = ?,exam_one_mark = ?,exam_two_mark = ?,  exam_three_mark = ?, credited = ? WHERE id = ?";
-    private static final String GET_RESULT = "select id,certificate_mark,exam_one_mark,exam_two_mark,exam_three_mark,credited from result WHERE id = ?";
+    private static final String UPDATE_RESULT = "UPDATE result SET certificate_mark = ?,exam_one_mark = ?,exam_two_mark = ?,  exam_three_mark = ?, exam_four_mark = ?, credited = ? WHERE id = ?";
+    private static final String GET_RESULT = "select id,certificate_mark,exam_one_mark,exam_two_mark,exam_three_mark,exam_four_mark,credited from result WHERE id = ?";
 
 
     private static final String ID_COLUMN = "id";
     private static final String NAME_COLUMN = "name";
     private static final String EXAM_ONE_COLUMN = "exam_one_mark";
     private static final String EXAM_TWO_COLUMN = "exam_two_mark";
-    private static final String EXAM_THREE_COLUMN = "exam_two_mark";
+    private static final String EXAM_THREE_COLUMN = "exam_three_mark";
+    private static final String EXAM_FOUR_COLUMN = "exam_four_mark";
     private static final String CREDITED_COLUMN = "credited";
 
     private static final ResultDao instance = new ResultDao();
@@ -48,7 +49,7 @@ public class ResultDao implements Dao<Result> {
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 results.add(new Result(resultSet.getLong(ID_COLUMN),resultSet.getInt(NAME_COLUMN),resultSet.getInt(EXAM_ONE_COLUMN),
-                        resultSet.getInt(EXAM_TWO_COLUMN), resultSet.getInt(EXAM_THREE_COLUMN),resultSet.getBoolean(CREDITED_COLUMN)));
+                        resultSet.getInt(EXAM_TWO_COLUMN), resultSet.getInt(EXAM_THREE_COLUMN),resultSet.getInt(EXAM_FOUR_COLUMN),resultSet.getBoolean(CREDITED_COLUMN)));
             }
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -65,7 +66,8 @@ public class ResultDao implements Dao<Result> {
             preparedStatement.setInt(3, result.getFirstExamMark());
             preparedStatement.setInt(4, result.getSecondExamMark());
             preparedStatement.setInt(5,result.getThirdExamMark());
-            preparedStatement.setBoolean(6,result.isCredited());
+            preparedStatement.setInt(6,result.getFourthExamMark());
+            preparedStatement.setBoolean(7,result.isCredited());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -91,8 +93,9 @@ public class ResultDao implements Dao<Result> {
             preparedStatement.setInt(2, result.getFirstExamMark());
             preparedStatement.setInt(3, result.getSecondExamMark());
             preparedStatement.setInt(4,result.getThirdExamMark());
-            preparedStatement.setBoolean(5,result.isCredited());
-            preparedStatement.setLong(6, result.getId());
+            preparedStatement.setInt(5,result.getFourthExamMark());
+            preparedStatement.setBoolean(6,result.isCredited());
+            preparedStatement.setLong(7, result.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -110,7 +113,7 @@ public class ResultDao implements Dao<Result> {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 result = new Result(resultSet.getLong(ID_COLUMN),resultSet.getInt(NAME_COLUMN),resultSet.getInt(EXAM_ONE_COLUMN),
-                        resultSet.getInt(EXAM_TWO_COLUMN), resultSet.getInt(EXAM_THREE_COLUMN),resultSet.getBoolean(CREDITED_COLUMN));
+                        resultSet.getInt(EXAM_TWO_COLUMN), resultSet.getInt(EXAM_THREE_COLUMN),resultSet.getInt(EXAM_FOUR_COLUMN),resultSet.getBoolean(CREDITED_COLUMN));
             }
         }catch (SQLException e) {
             throw new DaoException(e);
@@ -119,7 +122,7 @@ public class ResultDao implements Dao<Result> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+               //     logger.error("Can't close result set: ", e);
                 }
             }
         }

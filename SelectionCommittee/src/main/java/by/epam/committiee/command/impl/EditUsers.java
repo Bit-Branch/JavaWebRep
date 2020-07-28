@@ -1,4 +1,13 @@
 package by.epam.committiee.command.impl;
 
-public class EditUsers {
+import by.epam.committiee.command.ActionCommand;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class EditUsers implements ActionCommand {
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+        return null;
+    }
 }

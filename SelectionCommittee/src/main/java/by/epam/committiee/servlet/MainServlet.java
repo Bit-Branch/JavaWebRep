@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/main", "/register", "/login","/chooseFaculty","/chooseSpecialty"})
+@WebServlet(urlPatterns = {"/main", "/register", "/login","/logout","/choose_faculty",
+        "/choose_specialty","/show_faculties","/profile","/my_marks","/my_specialties",
+        "/edit_users","/edit_faculties","/edit_specialties","/users_list","/edit_marks",
+        "/edit_info"})
 public class MainServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -20,34 +23,36 @@ public class MainServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
 
-        processRequest(request,response);
-        request.getRequestDispatcher(PathPage.LOGIN).forward(request, response);
+      String page = processRequest(request,response);
+        request.getRequestDispatcher(page).forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
-        processRequest(request,response);
-        response.sendRedirect(request.getHeader(RequestParameters.ORIGIN)
-                + PathPage.ROOT + PathPage.HOME);
+       String page = processRequest(request,response);
+       response.sendRedirect(request.getContextPath() + page);
     }
 
-    protected void processRequest(HttpServletRequest request,HttpServletResponse response)
+    protected String processRequest(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException {
 
         String commandStr = request.getParameter(RequestParameters.COMMAND_PARAMETER);
         CommandProvider commandProvider = CommandProvider.getInstance();
         ActionCommand command = commandProvider.getCommand(commandStr);
         String page = command.execute(request,response);
+        request.setAttribute(RequestParameters.ERROR_MESSAGE, "");
 
-        if (!page.equals(CommandName.WRONG_REQUEST.toString())) {
+      /*  if (page != null && !page.equals(CommandName.WRONG_REQUEST.toString())) {
             request.getRequestDispatcher(page).forward(request, response);
         } else {
             page = request.getRequestURI();
             request.getSession().setAttribute("Message", MessageManager.getProperty("message.cantLogIn"));
             response.sendRedirect(request.getContextPath() + page);
-        }
+        }*/
+
+      return page;
 
     }
 

@@ -17,12 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressDao implements Dao<Address> {
-    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
+//    private static Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_ALL_ADDRESSES = "select id,locality,street,building,flat,zip_code,enrollee_id as salt,role,email from address";
     private static final String INSERT_ADDRESS = "insert into address(id,locality,street,building,flat,zip_code,enrollee_id) values (?,?,?,?,?,?,?)";
     private static final String DELETE_ADDRESS = "delete from address where id = ? ";
     private static final String UPDATE_ADDRESS = "UPDATE address SET locality = ?,street = ?,building = ?,  flat = ?, zip_code = ?, enrollee_id = ? WHERE id = ?";
     private static final String GET_ADDRESS = "select id,locality,street,building,flat,zip_code,enrollee_id from address WHERE id = ?";
+    private static final String GET_ADDRESS_BY_USER_ID = "select id,locality,street,building,flat,zip_code,enrollee_id from address WHERE enrollee_id = ?";
 
 
     private static final String ID_COLUMN = "id";
@@ -126,7 +127,35 @@ public class AddressDao implements Dao<Address> {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    logger.error("Can't close result set: ", e);
+               //     logger.error("Can't close result set: ", e);
+                }
+            }
+        }
+        return address;
+    }
+
+    public Address findByUserId(long id) throws DaoException {
+        Address address = null;
+        ResultSet resultSet = null;
+        try (Connection conn = ConnectionPool.getInstance().getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(GET_ADDRESS_BY_USER_ID);
+        ){
+            preparedStatement.setLong(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                address = new Address(resultSet.getInt(ID_COLUMN),resultSet.getString(LOCALITY_COLUMN),
+                        resultSet.getString(STREET_COLUMN), resultSet.getString(BUILDING_COLUMN),
+                        resultSet.getString(FLAT_COLUMN), resultSet.getString(ZIP_CODE_COLUMN),
+                        resultSet.getLong(ENROLLEE_ID_COLUMN));
+            }
+        }catch (SQLException e) {
+            throw new DaoException(e);
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                 //   logger.error("Can't close result set: ", e);
                 }
             }
         }

@@ -1,0 +1,51 @@
+2020-58-16 07:58:54.166 [INFO] main: sss
+2020-49-27 23:49:54.057 [ERROR] main: error generating or sending mail
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1282) ~[mail-1.4.jar:1.4]
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:370) ~[mail-1.4.jar:1.4]
+	at javax.mail.Service.connect(Service.java:275) ~[mail-1.4.jar:1.4]
+	at javax.mail.Service.connect(Service.java:156) ~[mail-1.4.jar:1.4]
+	at javax.mail.Service.connect(Service.java:105) ~[mail-1.4.jar:1.4]
+	at javax.mail.Transport.send0(Transport.java:168) ~[mail-1.4.jar:1.4]
+	at javax.mail.Transport.send(Transport.java:98) ~[mail-1.4.jar:1.4]
+	at by.epam.committiee.mail.MailSender.send(MailSender.java:36) [classes/:?]
+	at by.epam.committiee.servlet.EmailTest.main(EmailTest.java:8) [classes/:?]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_201]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_201]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_201]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_201]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_201]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_201]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_201]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_201]
+	at java.net.Socket.connect(Socket.java:538) ~[?:1.8.0_201]
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:232) ~[mail-1.4.jar:1.4]
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:189) ~[mail-1.4.jar:1.4]
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1250) ~[mail-1.4.jar:1.4]
+	... 8 more
+2020-53-27 23:53:40.954 [ERROR] main: error generating or sending mail
+javax.mail.MessagingException: Could not connect to SMTP host: 10.101.3.229, port: 25
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1282) ~[mail-1.4.jar:1.4]
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:370) ~[mail-1.4.jar:1.4]
+	at javax.mail.Service.connect(Service.java:275) ~[mail-1.4.jar:1.4]
+	at javax.mail.Service.connect(Service.java:156) ~[mail-1.4.jar:1.4]
+	at javax.mail.Service.connect(Service.java:105) ~[mail-1.4.jar:1.4]
+	at javax.mail.Transport.send0(Transport.java:168) ~[mail-1.4.jar:1.4]
+	at javax.mail.Transport.send(Transport.java:98) ~[mail-1.4.jar:1.4]
+	at by.epam.committiee.mail.MailSender.send(MailSender.java:36) [classes/:?]
+	at by.epam.committiee.servlet.EmailTest.main(EmailTest.java:8) [classes/:?]
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_201]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_201]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_201]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_201]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_201]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_201]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_201]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_201]
+	at java.net.Socket.connect(Socket.java:538) ~[?:1.8.0_201]
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:232) ~[mail-1.4.jar:1.4]
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:189) ~[mail-1.4.jar:1.4]
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1250) ~[mail-1.4.jar:1.4]
+	... 8 more
